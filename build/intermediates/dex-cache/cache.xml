@@ -1,0 +1,284 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        is-multidex="true"
+        jar="C:\wintart\develop\android_workspace\bluetooth_beacon_attendance\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-nearby\7.5.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="22.0.1"
+        sha1="6440e5e5cfe368f9bff3c537fb8988048069cb33">
+        <dex dex="C:\wintart\develop\android_workspace\bluetooth_beacon_attendance\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-nearby-7.5.0_3217c94cc901e9b4ff711010bce5f5e42226bdd2\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\wintart\develop\android\sdk\extras\android\m2repository\com\android\support\support-annotations\22.2.0\support-annotations-22.2.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="22.0.1"
+        sha1="66b42a1f3eb7676070b7ef7f14b603483aecbee1">
+        <dex dex="C:\wintart\develop\android_workspace\bluetooth_beacon_attendance\app\build\intermediates\transforms\dex\debug\folders\1000\10\support-annotations-22.2.0_fd2c5cebfb2af7a2756ffd331b42aea57072ac39\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\wintart\develop\android_workspace\bluetooth_beacon_attendance\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-wearable\7.5.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="22.0.1"
+        sha1="69dd177337ead693c408c8dddc9546bb6f1244fa">
+        <dex dex="C:\wintart\develop\android_workspace\bluetooth_beacon_attendance\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-wearable-7.5.0_94ae952db3823dd05d7efdb9bb5ebd08fc5af809\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\wintart\develop\android_workspace\bluetooth_beacon_attendance\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="22.0.1"
+        sha1="74c5a78e727ecb478413259011e32e9a924a61f7">
+        <dex dex="C:\wintart\develop\android_workspace\bluetooth_beacon_attendance\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run_f1e638a6dd31469459fe4eb1c63af384e1c35997\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\wintart\develop\android_workspace\bluetooth_beacon_attendance\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-panorama\7.5.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="22.0.1"
+        sha1="ba207be21987c11b37d9f8faa08ed6e722569f30">
+        <dex dex="C:\wintart\develop\android_workspace\bluetooth_beacon_attendance\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-panorama-7.5.0_99551a33b7daa25fe43afd74b4a77730feb7a37a\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\wintart\develop\android_workspace\bluetooth_beacon_attendance\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-identity\7.5.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="22.0.1"
+        sha1="d405025c600055237c171a0bbabaa49d69696573">
+        <dex dex="C:\wintart\develop\android_workspace\bluetooth_beacon_attendance\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-identity-7.5.0_2c37c554b5042244253a49054740bf0a9b1fea08\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\wintart\develop\android_workspace\bluetooth_beacon_attendance\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-fitness\7.5.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="22.0.1"
+        sha1="a172852a35ff919e85b9b7f14bbc15c5bee25520">
+        <dex dex="C:\wintart\develop\android_workspace\bluetooth_beacon_attendance\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-fitness-7.5.0_95ee83f9493e123cdb41e860357d86622ee92bef\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\wintart\develop\android_workspace\bluetooth_beacon_attendance\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-analytics\7.5.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="22.0.1"
+        sha1="e7b35244f50663b3f8d150714bca9ecd7a290da1">
+        <dex dex="C:\wintart\develop\android_workspace\bluetooth_beacon_attendance\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-analytics-7.5.0_1bb99e6058c728651ba45276f4363e78e6094f91\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\wintart\develop\android_workspace\bluetooth_beacon_attendance\app\build\intermediates\exploded-aar\com.android.support\support-v4\22.2.0\jars\libs\internal_impl-22.2.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="22.0.1"
+        sha1="57f2ab85c164ff1676ec64dee787981c046fab79">
+        <dex dex="C:\wintart\develop\android_workspace\bluetooth_beacon_attendance\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-22.2.0_074cf9bf8f28ed55af6d4d157c091e228db120fb\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\wintart\develop\android_workspace\bluetooth_beacon_attendance\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-games\7.5.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="22.0.1"
+        sha1="02bac2dc792d78241077861566f2c82da955e7fa">
+        <dex dex="C:\wintart\develop\android_workspace\bluetooth_beacon_attendance\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-games-7.5.0_fba58a1849943dac607af8e638e790d4ad9f6811\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\wintart\develop\android_workspace\bluetooth_beacon_attendance\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-location\7.5.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="22.0.1"
+        sha1="1e98ef3f124bb7a11f8575f9ff5dfea330b61b6f">
+        <dex dex="C:\wintart\develop\android_workspace\bluetooth_beacon_attendance\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-location-7.5.0_c9ac730dba302a60e251d549b99eb71e551e0a5b\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\wintart\develop\android_workspace\bluetooth_beacon_attendance\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-appindexing\7.5.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="22.0.1"
+        sha1="f02127a85abd52a2cd526d4c2409f21969f80ee8">
+        <dex dex="C:\wintart\develop\android_workspace\bluetooth_beacon_attendance\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-appindexing-7.5.0_d548d4e0d566725c220396bad5f89f081d700c37\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\wintart\develop\android_workspace\bluetooth_beacon_attendance\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-safetynet\7.5.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="22.0.1"
+        sha1="1a6411087ab88ce5542f593e63a2752b6b0d6f1a">
+        <dex dex="C:\wintart\develop\android_workspace\bluetooth_beacon_attendance\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-safetynet-7.5.0_f6e51220d541b04f8e6417734441276f01ce39a0\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\wintart\develop\android_workspace\bluetooth_beacon_attendance\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-cast\7.5.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="22.0.1"
+        sha1="8e3a972f28b8bae817e382257ba177a31bcadbbc">
+        <dex dex="C:\wintart\develop\android_workspace\bluetooth_beacon_attendance\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-cast-7.5.0_0ed51f28fc141d4f60072a04849d23f96f9ebc24\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\wintart\develop\android_workspace\bluetooth_beacon_attendance\app\build\intermediates\exploded-aar\com.android.support\mediarouter-v7\22.0.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="22.0.1"
+        sha1="a1372c17fccacca753d3951d3ad820571cbce075">
+        <dex dex="C:\wintart\develop\android_workspace\bluetooth_beacon_attendance\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-mediarouter-v7-22.0.0_d7038a243dc1434f5fed5d97f08219ff401c813f\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\wintart\develop\android_workspace\bluetooth_beacon_attendance\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-drive\7.5.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="22.0.1"
+        sha1="f44d03c138cb6488fdbaa65e3a7e5878861a56d8">
+        <dex dex="C:\wintart\develop\android_workspace\bluetooth_beacon_attendance\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-drive-7.5.0_a33d7df7186a1d1ec6dc5b05e4b1fb07764f68e4\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\wintart\develop\android_workspace\bluetooth_beacon_attendance\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-gcm\7.5.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="22.0.1"
+        sha1="8d736fefa22d896e84a268354b3ed48a42663150">
+        <dex dex="C:\wintart\develop\android_workspace\bluetooth_beacon_attendance\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-gcm-7.5.0_7437000ba4ca57efe5d4fe6a5c862f8cc489e88e\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\wintart\develop\android_workspace\bluetooth_beacon_attendance\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-maps\7.5.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="22.0.1"
+        sha1="06a42becc33232ec0ee125161da68c1829c9f8fd">
+        <dex dex="C:\wintart\develop\android_workspace\bluetooth_beacon_attendance\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-maps-7.5.0_7d8299c42dee6d363ef77a53c12c55354fe930ea\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\wintart\develop\android_workspace\bluetooth_beacon_attendance\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\22.2.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="22.0.1"
+        sha1="73753982da6bde518f3a4c6b372749981d14d1a0">
+        <dex dex="C:\wintart\develop\android_workspace\bluetooth_beacon_attendance\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-appcompat-v7-22.2.0_8ae36b2386a31119b36bce5207212cf20986405a\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\wintart\develop\android_workspace\bluetooth_beacon_attendance\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-appstate\7.5.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="22.0.1"
+        sha1="68c140702c7242d914655bcb3164d9e8c45b84cb">
+        <dex dex="C:\wintart\develop\android_workspace\bluetooth_beacon_attendance\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-appstate-7.5.0_6eafa87b0ddd049535acdb8dc36ec9e406a0f981\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\wintart\develop\android_workspace\bluetooth_beacon_attendance\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-plus\7.5.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="22.0.1"
+        sha1="272bc5d7063f24bc3a33ea1d318cde8f31f5ec4c">
+        <dex dex="C:\wintart\develop\android_workspace\bluetooth_beacon_attendance\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-plus-7.5.0_fbac643b5c8aeafad9b3b0a8d76f81c3ddff4fc5\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\wintart\develop\android_workspace\bluetooth_beacon_attendance\app\build\intermediates\exploded-aar\com.android.support\support-v4\22.2.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="22.0.1"
+        sha1="1ee588ff2c4daf7b97c1cbf922a6c7f027285c2f">
+        <dex dex="C:\wintart\develop\android_workspace\bluetooth_beacon_attendance\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-v4-22.2.0_28936b1227897d856bfc6d744881b72769fb0681\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\wintart\develop\android_workspace\bluetooth_beacon_attendance\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-appinvite\7.5.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="22.0.1"
+        sha1="63ec6e9f4fe5482a7447d0f3091b8e543a02554c">
+        <dex dex="C:\wintart\develop\android_workspace\bluetooth_beacon_attendance\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-appinvite-7.5.0_69214aec08bc1d315748d893004bfb3ba9995ad5\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\wintart\develop\android_workspace\bluetooth_beacon_attendance\app\libs\gcm.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="22.0.1"
+        sha1="a6d7bce795a14c7f86111756c4ceb44b79de14aa">
+        <dex dex="C:\wintart\develop\android_workspace\bluetooth_beacon_attendance\app\build\intermediates\transforms\dex\debug\folders\1000\2\gcm_d33a52f0152df50b9cb04d0a1f9b163a4de45cf6\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\wintart\develop\android_workspace\bluetooth_beacon_attendance\app\build\intermediates\exploded-aar\com.android.support\mediarouter-v7\22.0.0\jars\libs\internal_impl-22.0.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="22.0.1"
+        sha1="ba3df4eb0a630d7de294f0e48d3f9267d279b784">
+        <dex dex="C:\wintart\develop\android_workspace\bluetooth_beacon_attendance\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-22.0.0_865aabf6a2e93089e0b2e01c4c56369b6e2e2dbc\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\wintart\develop\android_workspace\bluetooth_beacon_attendance\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-base\7.5.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="22.0.1"
+        sha1="a78183f30e769a98ab4820794f597763088d3065">
+        <dex dex="C:\wintart\develop\android_workspace\bluetooth_beacon_attendance\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-base-7.5.0_2ac20c3ead3573b2a48c8558a43cf08913c3674b\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\wintart\develop\android_workspace\bluetooth_beacon_attendance\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-wallet\7.5.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="22.0.1"
+        sha1="6836d188602ec5382d1967c58b00960eb8ff8773">
+        <dex dex="C:\wintart\develop\android_workspace\bluetooth_beacon_attendance\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-wallet-7.5.0_94a2903bc62b333f666cbab9c898437ec81b4aa7\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\wintart\develop\android_workspace\bluetooth_beacon_attendance\app\libs\json_simple-1.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="22.0.1"
+        sha1="5e303a03d04e6788dddfa3655272580ae0fc13bb">
+        <dex dex="C:\wintart\develop\android_workspace\bluetooth_beacon_attendance\app\build\intermediates\transforms\dex\debug\folders\1000\2\json_simple-1.1_f8a142b8b7036fe07c0c017ba633539397338f0c\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\wintart\develop\android_workspace\bluetooth_beacon_attendance\app\libs\gcm-server.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="22.0.1"
+        sha1="e4e541020887027b9b63c5a4ab821b846d1eb9d9">
+        <dex dex="C:\wintart\develop\android_workspace\bluetooth_beacon_attendance\app\build\intermediates\transforms\dex\debug\folders\1000\2\gcm-server_226b5c4d9cad387f9c3e71be3d7d200113a79314\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\wintart\develop\android_workspace\bluetooth_beacon_attendance\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-ads\7.5.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="22.0.1"
+        sha1="29ebc7e04d877062317c8cc0e68b20f0c1fcda66">
+        <dex dex="C:\wintart\develop\android_workspace\bluetooth_beacon_attendance\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-ads-7.5.0_9977036d0a3899e035860c967a8ba9cc17e06772\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\wintart\develop\android_workspace\bluetooth_beacon_attendance\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="22.0.1"
+        sha1="3cac9de0313357c4fa4a2fdbeb4d0224a78cb3e8">
+        <dex dex="C:\wintart\develop\android_workspace\bluetooth_beacon_attendance\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run-bootstrap_edec0842ff1c29e9eca146d81ae7b9c8e03a1349\classes.dex" />
+    </item>
+
+</items>

@@ -18,19 +18,19 @@ import static android.support.v4.app.ActivityCompat.startActivityForResult;
 
 /**
  * Created by gd2 on 2015-07-02.
- * ĞĞœ Ñ•Ğ¾Ğ—Ğ“Ñ‘Â®Ğ”Ğ™ĞĞœÑ˜Ğ—ĞÑ” Ñ•Ğ«ĞÂ» Ğ…Ğ—Ğ—Ğ°Ğ…Ğ“Ğ”Ğ§ĞÂ» Â¶Â§ Ğ…Ğ—Ğ—Ğ°ÂµĞ˜Ò‘Ğ©.
- * Â°ĞĞĞµ Ñ‘Ğ¥ĞÑŠ Ğ…Ğ“ĞĞ«ÂµĞ—Ò‘Ğ’ Ñ‘Ğ®Ò‘ĞŸĞ–Ğ´Ğ…Ñ”Ğ–Â®Ñ—Ğ ÂµĞ¾Â·ĞŸÂµĞ—Ñ•Ğ¾ĞĞ¦Ò‘Ğ’ Ñ•Ğ¾Ğ—Ğ“Ñ‘Â®Ğ”Ğ™ĞĞœÑ˜Ğ—ĞĞ£
- * BootstrapNotifierÑ‘Â¦ implementsĞ—Ğ¡Ò‘Ğ©.
- * BootstrapNitifierÒ‘Ğ’ MonitorNotifierÑ‘Â¦ Â»ÑƒÑ˜Ğ£Ğ—Ğ¡Ò‘Ğ©.
- * MonitorNotifierÒ‘Ğ’ RegionĞ•Â¬Â·ĞĞ…Ñ”Ñ‘Â¦ Â»Ğ·Ñ—Ğ»Ğ—Ğ¡Ò‘Ğ©.
- * RegionĞÑ” IdentifierÑ‘Â¦ Â»Ğ·Ñ—Ğ»Ğ—Ğ¡Ò‘Ğ©.
- * RegionĞÑ” BeaconĞÂ» Â»Ğ·Ñ—Ğ»Ğ—Ğ¡Ò‘Ğ©.
+ * ÀÌ ¾îÇÃ¸®ÄÉÀÌ¼ÇÀº ¾ÛÀ» ½ÇÇà½ÃÄ×À» ¶§ ½ÇÇàµÈ´Ù.
+ * °¡Àå ¸ÕÀú ½ÃÀÛµÇ´Â ¸Ş´ÏÆä½ºÆ®¿¡ µî·ÏµÇ¾îÀÖ´Â ¾îÇÃ¸®ÄÉÀÌ¼ÇÀÓ
+ * BootstrapNotifier¸¦ implementsÇÑ´Ù.
+ * BootstrapNitifier´Â MonitorNotifier¸¦ »ó¼ÓÇÑ´Ù.
+ * MonitorNotifier´Â RegionÅ¬·¡½º¸¦ »ç¿ëÇÑ´Ù.
+ * RegionÀº Identifier¸¦ »ç¿ëÇÑ´Ù.
+ * RegionÀº BeaconÀ» »ç¿ëÇÑ´Ù.
  */
 public class FirstStartApp extends Application implements BootstrapNotifier {
     public CalendarMonthViewActivity calendarMonthViewActivity;
     public MainActivity mainActivity;
 
-    private String STUDENTNAME="HYUN HONG"; //Ñ•Ğ¾Ğ—Ğ“ Ğ†ĞÂµÂµ Ñ—Â©Â±Ğ²Ñ—Ğ ĞĞ¦Ò‘Ğ’ Ñ–Â»Ñ—Ğ»ĞÑ” ĞÑŠĞĞµ ÂµĞ—Ò‘Ğ’ÂµĞ½..??
+    private String STUDENTNAME="HYUN HONG"; //¾îÇÃ ²¨µµ ¿©±â¿¡ ÀÖ´Â ³»¿ëÀº ÀúÀå µÇ´Âµí..??
     private String ID="0";
     private String MAJOR="";
 
@@ -38,9 +38,9 @@ public class FirstStartApp extends Application implements BootstrapNotifier {
     public static final int REQUEST_CODE_SCHEDULE_INPUT = 1001;
 
     private static final String TAG = "FirstStartApp";
-    private RegionBootstrap regionBootstrap; //ĞĞœÂ°Ğ• Ğ—ĞŸÂ·Ğ‘Ñ‘Ğ¹ Ñ”ÑĞ”Ğ¬Ñ‘Ğ•Ñ–ĞšĞ‘Ñ† Ğ—ĞšÑ—Ğ´Ğ—ĞŸÂ°Ğ½ Ñ”ÑĞ”Ğ¬Ñ‘Ğ•Ò‘ĞŸĞÑŠÑ‘Â¦ Ğ…Ğ—Ğ—Ğ°Ğ—ĞŸÂ±Ğ²ĞÂ§Ğ—Ğ¨Ñ˜Â­ Ñ”â„–Ñ”Ğ© Ñ•Ñ†Ğ“Â»Ğ—Ğ¯Ò‘Ğ©.
-    // Â±Ğ§ Â°ÑŠĞ‘Â¤Ñ—ĞÑ˜Â­ Ñ”ÑĞ”Ğ¬Ñ‘Ğ•Ò‘ĞŸĞÑŠÑ—Ğ Ñ•Ğ›Ğ–Â®Ñ”ÑĞ”Ğ¬ Ò‘Ğ»Ğ…Ğ• Ñ•Ğ–ĞĞœÑ”ÑĞ”Ğ¬ĞÑ‘Â·Ğ Ñ˜Ñ˜Ğ–Ğ“ Ğ—Ğ¨Ñ–Ñ‰Ò‘Ğ©.
-    //Ğ—ĞŸĞ‘Ñ†Ñ‘Ñ‘ getBeaconParsers.addÂ·Ğ Ğ“Ğ¯Â°ĞĞ—Ğ¨ÂµÂµ ÂµĞ—Ò‘Ğ’Â°Ğ•Â±Ğ´Ğ—ĞŸÒ‘ĞŸÂ±Ğ¾ Â±Â»ĞĞœ Ğ—ĞšÑ—Ğ´Ò‘Ğ’ Ñ•ÑˆÑ•ÑŠĞÂ» ÂµĞ½ÂµÂµ Ğ—ĞŸÒ‘Ğ©.
+    private RegionBootstrap regionBootstrap; //ÀÌ°Å ÇÏ·Á¸é ºñÄÜ¸Å³ÊÁö ÇÊ¿äÇÏ°í ºñÄÜ¸Å´ÏÀú¸¦ ½ÇÇàÇÏ±âÀ§ÇØ¼­ º¹ºÙ ¾öÃ»Çß´Ù.
+    // ±× °úÁ¤¿¡¼­ ºñÄÜ¸Å´ÏÀú¿¡ ¾ËÆ®ºñÄÜ ´ë½Å ¾ÆÀÌºñÄÜÀ¸·Î ¼¼ÆÃ ÇØ³ù´Ù.
+    //ÇÏÁö¸¸ getBeaconParsers.add·Î Ãß°¡ÇØµµ µÇ´Â°Å±äÇÏ´Ï±î ±»ÀÌ ÇÊ¿ä´Â ¾ø¾úÀ» µíµµ ÇÏ´Ù.
 
     @Override
     public void onCreate(){
@@ -50,7 +50,7 @@ public class FirstStartApp extends Application implements BootstrapNotifier {
         BeaconManager beaconmanager = BeaconManager.getInstanceForApplication(this);
         Region region = new Region("com.example.myapp.boostrapRegion", null, null, null);
         regionBootstrap = new RegionBootstrap(this, region);
-        //Â·â„–Ğ‘Ñ†Ñ—Ğ’ Ñ”ĞĞ–Â®Ğ…Ñ”Ğ–Â®Â·Â¦Â±Ğ¾Ğ‘Ñ† Ğ”Ğ‘Ğ…Ñ”Ğ–Â®Â·Â°Ğ–Â® Ğ—ĞŸÂ°Ğ½ Â±Ğ§Ò‘Ğ©ĞĞ… Ñ‘Ğ®ĞĞÑ—ÑĞ–Ñ˜Ñ”ÑĞ–Ñ˜
+        //·¹Áö¿Â ºÎÆ®½ºÆ®·¦±îÁö ÄÁ½ºÆ®·°Æ® ÇÏ°í ±×´ÙÀ½ ¸ŞÀÎ¿¢Æ¼ºñÆ¼
         Log.e(TAG,"MY : Main START!!! ");
     }
     @Override
@@ -60,7 +60,7 @@ public class FirstStartApp extends Application implements BootstrapNotifier {
 
     @Override
     public void didEnterRegion(Region arg0){
-        //Ñ”ÑĞ”Ğ¬ Ğ…Ğ•Ğ˜Ğˆâ„–Ğ®Ñ•Ğ¢ĞÂ» Â¶Â§ Ğ”Ğ¡Ğ‘Ñ†Ò‘Ğ’Â°Ğ¤ â„–Â®Ğ‘Â¦Â°Ğ Ñ•Ğ–Ò‘Ğ¡Â°Ğ¤, Ñ”ÑĞ”Ğ¬ Ğ…Ğ•Ğ˜Ğˆâ„–Ğ®Ñ•Ğ–Ñ˜Â­ Ğ”Ğ¡Ğ‘Ñˆ CalendarMonthViewActivity Ñ•Ğ§Ğ–Ñ˜Ñ”ÑĞ–Ñ˜Ñ—ĞÑ˜Â­Ò‘Ğ’ Ğ•ĞĞ”ĞÂ·ĞĞ—ĞŸÒ‘Ğ’Â°Ğ¤ ĞÑŠĞĞµĞĞœ ÂµĞš.
+        //ºñÄÜ ½ÅÈ£¹Ş¾ÒÀ» ¶§ ÄÑÁö´Â°Ô ¹®Á¦°¡ ¾Æ´Ñ°Ô, ºñÄÜ ½ÅÈ£¹Ş¾Æ¼­ ÄÑÁø CalendarMonthViewActivity ¾×Æ¼ºñÆ¼¿¡¼­´Â ÅÍÄ¡·ÎÇÏ´Â°Ô ÀúÀåÀÌ µÊ.
 
 
   //  saveECTClass();
@@ -68,8 +68,8 @@ public class FirstStartApp extends Application implements BootstrapNotifier {
         CalendarMonthViewActivity.ONOFF=true;
         Intent intent = new Intent(this, CalendarMonthViewActivity.class);
     //    Intent intent = new Intent(this,calendarMonthViewActivity.getClass());
-        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK|Intent.FLAG_ACTIVITY_SINGLE_TOP); //ĞĞœÂ·Ñ‘Â°Ğ¤ Ğ—ĞŸÑ‘Ğ¹ ÂµĞ˜Ò‘Ğ©.....or
-      //  intent.addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);   //ĞĞœÂ·Ñ‘Â°Ğ¤ addÂ·ĞÂµÂµ Â°ĞÒ‘Ğ™Ğ—ĞŸÒ‘Ğ©
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK|Intent.FLAG_ACTIVITY_SINGLE_TOP); //ÀÌ·¸°Ô ÇÏ¸é µÈ´Ù.....or
+      //  intent.addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);   //ÀÌ·¸°Ô add·Îµµ °¡´ÉÇÏ´Ù
      //   intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
     //       intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         this.startActivity(intent);
@@ -90,7 +90,7 @@ public class FirstStartApp extends Application implements BootstrapNotifier {
     }
     @Override
     public void didExitRegion(Region arg0) {
- //       Toast.makeText(this,"EXIT",Toast.LENGTH_SHORT).show(); ĞĞœÂ·Ñ‘Â°Ğ¤ Ñ‘Ñ‘ÂµĞ¹Ñ‘Ğ¹ Ğ‘Ğ§ĞĞ…
+ //       Toast.makeText(this,"EXIT",Toast.LENGTH_SHORT).show(); ÀÌ·¸°Ô ¸¸µé¸é Á×À½
         // Don't care
     }
 
