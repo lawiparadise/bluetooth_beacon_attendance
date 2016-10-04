@@ -67,6 +67,6 @@
     <file url="file://$PROJECT_DIR$/app/src/main/java/com/law/blueinnofora/startup/BootstrapNotifier.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/app/src/main/java/com/law/blueinnofora/startup/RegionBootstrap.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/app/src/main/java/com/law/blueinnofora/startup/StartupBroadcastReceiver.java" charset="UTF-8" />
-    <file url="PROJECT" charset="windows-1251" />
+    <file url="PROJECT" charset="UTF-8" />
   </component>
 </project>

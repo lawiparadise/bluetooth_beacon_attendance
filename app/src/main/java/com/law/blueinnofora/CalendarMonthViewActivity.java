@@ -184,6 +184,7 @@ public class CalendarMonthViewActivity extends Activity {
 
         // load all items from the database
         loadAllItems();
+        Toast.makeText(getApplicationContext(), "안녕하세요!!", Toast.LENGTH_SHORT).show();
 
     }
 
