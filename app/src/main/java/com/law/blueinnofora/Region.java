@@ -9,12 +9,12 @@ import java.util.List;
 
 /**
  * Created by gd2 on 2015-07-02.
- * ºñÄÜ°ú ¸¸³ª´Â Áö¿ªÀ» ³»°¡ ¼³Á¤ÇØÁÖ´Âµí?
+ * ë¹„ì½˜ê³¼ ë§Œë‚˜ëŠ” ì§€ì—­ì„ ë‚´ê°€ ì„¤ì •í•´ì£¼ëŠ”ë“¯?
  */
 public class Region implements Parcelable{
     private static final String TAG = "Region";
 
-    //°Á ¸¸µé¾î¾ßÇÏ´Â°Í
+    //ê± ë§Œë“¤ì–´ì•¼í•˜ëŠ”ê²ƒ
     public static final Parcelable.Creator<Region> CREATOR = new Parcelable.Creator<Region>(){
         public Region createFromParcel(Parcel in) {
             return new Region(in);
@@ -28,7 +28,7 @@ public class Region implements Parcelable{
     protected final List<Identifier> mIdentifiers;
     protected final String mUniqueId;
 
-    //·¹ÀÎÂ¡ ¶Ç´Â ¸ğ´ÏÅÍ¸µ¿¡ ¾²±âÀ§ÇØ ·¹Áö¿ÂÀ» ¸¸µç´Ù.
+    //ë ˆì¸ì§• ë˜ëŠ” ëª¨ë‹ˆí„°ë§ì— ì“°ê¸°ìœ„í•´ ë ˆì§€ì˜¨ì„ ë§Œë“ ë‹¤.
     public Region(String uniqueId, Identifier id1, Identifier id2, Identifier id3){
         Log.i(TAG, "MY : CON : Region is constructed!!");
         this.mIdentifiers = new ArrayList<Identifier>(3);

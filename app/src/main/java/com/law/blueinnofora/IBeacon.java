@@ -11,7 +11,7 @@ import java.util.ArrayList;
 public class IBeacon extends Beacon {
     protected static final String TAG = "IBeacon";
 
-    //ºñÄÜÀÌ ÆÄ¸£¼¿¶óº§ ÀÓÇÃ¸®¸ÕÆ® ÇÏ±â¿¡ ÇØ¾ßÇÏ´Â°Í
+    //ë¹„ì½˜ì´ íŒŒë¥´ì…€ë¼ë²¨ ì„í”Œë¦¬ë¨¼íŠ¸ í•˜ê¸°ì— í•´ì•¼í•˜ëŠ”ê²ƒ
     public static final Parcelable.Creator<IBeacon> CREATOR
             = new Parcelable.Creator<IBeacon>() {
         public IBeacon createFromParcel(Parcel in) {
@@ -37,7 +37,7 @@ public class IBeacon extends Beacon {
     protected IBeacon() {
     }
 
-    //ÆÄ¸£¼¿ ¶§¹®¿¡ ÇÊ¿äÇÑ°Í
+    //íŒŒë¥´ì…€ ë•Œë¬¸ì— í•„ìš”í•œê²ƒ
     protected IBeacon(Parcel in) {
         super(in);
     }
@@ -51,7 +51,7 @@ public class IBeacon extends Beacon {
     }
 
 
-    //Á¦Á¶»ç ±¸ºĞ ¸®ÅÏ
+    //ì œì¡°ì‚¬ êµ¬ë¶„ ë¦¬í„´
     public int getMfgReserved() {
         return mDataFields.get(0).intValue();
     }

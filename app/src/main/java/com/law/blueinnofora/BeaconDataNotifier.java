@@ -4,7 +4,7 @@ import com.law.blueinnofora.client.DataProviderException;
 
 /**
  * Created by gd2 on 2015-07-02.
- * À¥¼­¹ö¿¡¼­ »ç¿ë°¡´ÉÇÑ ºñÄÜµ¥ÀÌÅ¸°¡ ÀÖÀ¸¸é? ¾Ë¸°´Ù.
+ * ì›¹ì„œë²„ì—ì„œ ì‚¬ìš©ê°€ëŠ¥í•œ ë¹„ì½˜ë°ì´íƒ€ê°€ ìˆìœ¼ë©´? ì•Œë¦°ë‹¤.
  */
 public interface BeaconDataNotifier {
     public void beaconDataUpdate(Beacon beacon, BeaconData data, DataProviderException exception);

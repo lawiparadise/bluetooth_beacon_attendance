@@ -8,7 +8,7 @@ import java.util.regex.Pattern;
 
 /**
  * Created by gd2 on 2015-07-02.
- * ºñÄÜ ¾ÆÀÌµ§Æ¼ÆÄÀÌ¾î¸¦ ÀÓÀÇÀÇ ¹ÙÀÌÆ® ·À½º·Î ¿£Ä¸½¶ÇÑ´Ù.
+ * ë¹„ì½˜ ì•„ì´ë´í‹°íŒŒì´ì–´ë¥¼ ì„ì˜ì˜ ë°”ì´íŠ¸ ë ìŠ¤ë¡œ ì—”ìº¡ìŠí•œë‹¤.
  */
 public class Identifier implements Comparable<Identifier> {
     //?
@@ -23,7 +23,7 @@ public class Identifier implements Comparable<Identifier> {
 
     public static Identifier parse(String stringValue){
         if(stringValue==null){
-            throw new NullPointerException("¾ÆÀÌµ§Æ¼ÆÄÀÌ¾î°¡ »ı¼ºµÇÁö ¾Ê¾Ò´Ù");
+            throw new NullPointerException("ì•„ì´ë´í‹°íŒŒì´ì–´ê°€ ìƒì„±ë˜ì§€ ì•Šì•˜ë‹¤");
         }
 
         if(HEX_PATTERN.matcher(stringValue).matches()){

@@ -35,7 +35,7 @@ import java.util.concurrent.RejectedExecutionException;
 
 /**
  * Created by gd2 on 2015-07-02.
- * ºñÄÜ¼­ºñ½º ¾È¿¡¼­ Äİ¹éÀÇ ÄİÇÔ¼ö¸¦ ½ÇÇà½ÃÅ²´Ù. Äİ ÇÔ¼ö°¡ ½ÇÇàµÇ¸é ºñÄÜÀÎÅÙÆ®ÇÁ·Î¼¼¼­ ¼­ºñ½º°¡ ½ÇÇàµÈ´Ù.
+ * ë¹„ì½˜ì„œë¹„ìŠ¤ ì•ˆì—ì„œ ì½œë°±ì˜ ì½œí•¨ìˆ˜ë¥¼ ì‹¤í–‰ì‹œí‚¨ë‹¤. ì½œ í•¨ìˆ˜ê°€ ì‹¤í–‰ë˜ë©´ ë¹„ì½˜ì¸í…íŠ¸í”„ë¡œì„¸ì„œ ì„œë¹„ìŠ¤ê°€ ì‹¤í–‰ëœë‹¤.
  */
 
 @TargetApi(5)
@@ -86,7 +86,7 @@ public class BeaconService extends Service {
      */
     public class BeaconBinder extends Binder {
         public BeaconService getService() {
-       //     LogManager.i(TAG, "getService of BeaconBinder called");
+            //     LogManager.i(TAG, "getService of BeaconBinder called");
             // Return this instance of LocalService so clients can call public methods
             return BeaconService.this;
         }
@@ -157,21 +157,21 @@ public class BeaconService extends Service {
      */
     @Override
     public IBinder onBind(Intent intent) {
-    //    LogManager.i(TAG, "binding");
+        //    LogManager.i(TAG, "binding");
         bindCount++;
         return mMessenger.getBinder();
     }
 
     @Override
     public boolean onUnbind(Intent intent) {
-  //      LogManager.i(TAG, "unbinding");
+        //      LogManager.i(TAG, "unbinding");
         bindCount--;
         return false;
     }
 
     @Override
     public void onCreate() {
- //       LogManager.i(TAG, "beaconService version %s is starting up", BuildConfig.VERSION_NAME );
+        //       LogManager.i(TAG, "beaconService version %s is starting up", BuildConfig.VERSION_NAME );
         Log.i(TAG,"MY : ONCR : BeaconService is constructed!!");
         bluetoothCrashResolver = new BluetoothCrashResolver(this);
         bluetoothCrashResolver.start();
@@ -191,10 +191,10 @@ public class BeaconService extends Service {
 
         } catch (ClassNotFoundException e) {
             Log.e(TAG,"MY : to make service, if SimulatedScanData no exist then, what?");
-    //        LogManager.d(TAG, "No org.altbeacon.beacon.SimulatedScanData class exists.");
+            //        LogManager.d(TAG, "No org.altbeacon.beacon.SimulatedScanData class exists.");
         } catch (Exception e) {
             Log.e(TAG,"MY : Cannot get simulated Scan data ");
-   //         LogManager.e(e, TAG, "Cannot get simulated Scan data.  Make sure your org.altbeacon.beacon.SimulatedScanData class defines a field with the signature 'public static List<Beacon> beacons'");
+            //         LogManager.e(e, TAG, "Cannot get simulated Scan data.  Make sure your org.altbeacon.beacon.SimulatedScanData class defines a field with the signature 'public static List<Beacon> beacons'");
         }
     }
 
@@ -202,11 +202,11 @@ public class BeaconService extends Service {
     @TargetApi(18)
     public void onDestroy() {
         if (android.os.Build.VERSION.SDK_INT < 18) {
-    //        LogManager.w(TAG, "Not supported prior to API 18.");
+            //        LogManager.w(TAG, "Not supported prior to API 18.");
             return;
         }
         bluetoothCrashResolver.stop();
-    //    LogManager.i(TAG, "onDestroy called.  stopping scanning");
+        //    LogManager.i(TAG, "onDestroy called.  stopping scanning");
         handler.removeCallbacksAndMessages(null);
         mCycledScanner.stop();
     }
@@ -218,11 +218,11 @@ public class BeaconService extends Service {
         Log.e(TAG, "MY : startRangingingBeaconInRegion");
         synchronized (rangedRegionState) {
             if (rangedRegionState.containsKey(region)) {
-  //              LogManager.i(TAG, "Already ranging that region -- will replace existing region.");
+                //              LogManager.i(TAG, "Already ranging that region -- will replace existing region.");
                 rangedRegionState.remove(region); // need to remove it, otherwise the old object will be retained because they are .equal
             }
             rangedRegionState.put(region, new RangeState(callback));
-    //        LogManager.d(TAG, "Currently ranging %s regions.", rangedRegionState.size());
+            //        LogManager.d(TAG, "Currently ranging %s regions.", rangedRegionState.size());
         }
         mCycledScanner.start();
     }
@@ -232,7 +232,7 @@ public class BeaconService extends Service {
         synchronized (rangedRegionState) {
             rangedRegionState.remove(region);
             rangedRegionCount = rangedRegionState.size();
- //           LogManager.d(TAG, "Currently ranging %s regions.", rangedRegionState.size());
+            //           LogManager.d(TAG, "Currently ranging %s regions.", rangedRegionState.size());
         }
 
         if (rangedRegionCount == 0 && monitoredRegionState.size() == 0) {
@@ -240,31 +240,31 @@ public class BeaconService extends Service {
         }
     }
 
-    public void startMonitoringBeaconsInRegion(Region region, Callback callback) { //¿©±â¼­ Äİ¹é »ı¼º!!
+    public void startMonitoringBeaconsInRegion(Region region, Callback callback) { //ì—¬ê¸°ì„œ ì½œë°± ìƒì„±!!
         Log.i(TAG, "MY : startMonitoringBeaconInRegion");
-   //     LogManager.d(TAG, "startMonitoring called");
+        //     LogManager.d(TAG, "startMonitoring called");
         synchronized (monitoredRegionState) {
             if (monitoredRegionState.containsKey(region)) {
-    //            LogManager.i(TAG, "Already monitoring that region -- will replace existing region monitor.");
+                //            LogManager.i(TAG, "Already monitoring that region -- will replace existing region monitor.");
                 monitoredRegionState.remove(region); // need to remove it, otherwise the old object will be retained because they are .equal
             }
             monitoredRegionState.put(region, new MonitorState(callback));
         }
-  //      LogManager.d(TAG, "Currently monitoring %s regions.", monitoredRegionState.size());
+        //      LogManager.d(TAG, "Currently monitoring %s regions.", monitoredRegionState.size());
 
-        //½ºÄµ ½ÃÀÛ
+        //ìŠ¤ìº” ì‹œì‘
         mCycledScanner.start();
 
     }
 
     public void stopMonitoringBeaconsInRegion(Region region) {
         int monitoredRegionCount;
-    //    LogManager.d(TAG, "stopMonitoring called");
+        //    LogManager.d(TAG, "stopMonitoring called");
         synchronized (monitoredRegionState) {
             monitoredRegionState.remove(region);
             monitoredRegionCount = monitoredRegionState.size();
         }
-   //     LogManager.d(TAG, "Currently monitoring %s regions.", monitoredRegionState.size());
+        //     LogManager.d(TAG, "Currently monitoring %s regions.", monitoredRegionState.size());
         if (monitoredRegionCount == 0 && rangedRegionState.size() == 0) {
             mCycledScanner.stop();
         }
@@ -283,7 +283,7 @@ public class BeaconService extends Service {
                         new ScanData(device, rssi, scanRecord));
             }
             catch (RejectedExecutionException e) {
-     //           LogManager.w(TAG, "Ignoring scan result because we cannot keep up.");
+                //           LogManager.w(TAG, "Ignoring scan result because we cannot keep up.");
             }
         }
 
@@ -295,14 +295,14 @@ public class BeaconService extends Service {
             if (simulatedScanData != null) {
                 // if simulatedScanData is provided, it will be seen every scan cycle.  *in addition* to anything actually seen in the air
                 // it will not be used if we are not in debug mode
-            //    LogManager.w(TAG, "Simulated scan data is deprecated and will be removed in a future release. Please use the new BeaconSimulator interface instead.");
+                //    LogManager.w(TAG, "Simulated scan data is deprecated and will be removed in a future release. Please use the new BeaconSimulator interface instead.");
 
                 if (0 != (getApplicationInfo().flags &= ApplicationInfo.FLAG_DEBUGGABLE)) {
                     for (Beacon beacon : simulatedScanData) {
                         processBeaconFromScan(beacon);
                     }
                 } else {
-    //                LogManager.w(TAG, "Simulated scan data provided, but ignored because we are not running in debug mode.  Please remove simulated scan data for production.");
+                    //                LogManager.w(TAG, "Simulated scan data provided, but ignored because we are not running in debug mode.  Please remove simulated scan data for production.");
                 }
             }
             if (BeaconManager.getBeaconSimulator() != null) {
@@ -314,10 +314,10 @@ public class BeaconService extends Service {
                             processBeaconFromScan(beacon);
                         }
                     } else {
-         //               LogManager.w(TAG, "Beacon simulations provided, but ignored because we are not running in debug mode.  Please remove beacon simulations for production.");
+                        //               LogManager.w(TAG, "Beacon simulations provided, but ignored because we are not running in debug mode.  Please remove beacon simulations for production.");
                     }
                 } else {
-         //           LogManager.w(TAG, "getBeacons is returning null. No simulated beacons to report.");
+                    //           LogManager.w(TAG, "getBeacons is returning null. No simulated beacons to report.");
                 }
             }
         }
@@ -342,9 +342,9 @@ public class BeaconService extends Service {
             while (monitoredRegionIterator.hasNext()) {
                 Region region = monitoredRegionIterator.next();
                 MonitorState state = monitoredRegionState.get(region);
-                if (state.isNewlyOutside() || RESCAN) { //»õ·Î¿î ½ºÅ×ÀÌÆ®¸é Äİ ½ÇÇàÇÑ´Ù.
+                if (state.isNewlyOutside() || RESCAN) { //ìƒˆë¡œìš´ ìŠ¤í…Œì´íŠ¸ë©´ ì½œ ì‹¤í–‰í•œë‹¤.
                     RESCAN=false;
-  //                  LogManager.d(TAG, "found a monitor that expired: %s", region);
+                    //                  LogManager.d(TAG, "found a monitor that expired: %s", region);
                     state.getCallback().call(BeaconService.this, "monitoringData", new MonitoringData(state.isInside(), region));
                 }
             }
@@ -356,19 +356,19 @@ public class BeaconService extends Service {
             Stats.getInstance().log(beacon);
         }
         trackedBeaconsPacketCount++;
-   //     if (LogManager.isVerboseLoggingEnabled()) {
-    //        LogManager.d(TAG,
-   //                 "beacon detected : %s", beacon.toString());
-   //     }
+        //     if (LogManager.isVerboseLoggingEnabled()) {
+        //        LogManager.d(TAG,
+        //                 "beacon detected : %s", beacon.toString());
+        //     }
 
         beacon = mGattBeaconTracker.track(beacon);
         // If this is a Gatt beacon that should be ignored, it will be set to null as a result of
         // the above
         if (beacon == null) {
-  //          if (LogManager.isVerboseLoggingEnabled()) {
- //               LogManager.d(TAG,
-    //                    "not processing detections for GATT extra data beacon");
-   //         }
+            //          if (LogManager.isVerboseLoggingEnabled()) {
+            //               LogManager.d(TAG,
+            //                    "not processing detections for GATT extra data beacon");
+            //         }
         }
         else {
             List<Region> matchedRegions = null;
@@ -386,13 +386,13 @@ public class BeaconService extends Service {
                 }
             }
 
-    //        LogManager.d(TAG, "looking for ranging region matches for this beacon");
+            //        LogManager.d(TAG, "looking for ranging region matches for this beacon");
             synchronized (rangedRegionState) {
                 matchedRegions = matchingRegions(beacon, rangedRegionState.keySet());
                 matchedRegionIterator = matchedRegions.iterator();
                 while (matchedRegionIterator.hasNext()) {
                     Region region = matchedRegionIterator.next();
-           //         LogManager.d(TAG, "matches ranging region: %s", region);
+                    //         LogManager.d(TAG, "matches ranging region: %s", region);
                     RangeState rangeState = rangedRegionState.get(region);
                     if (rangeState != null) {
                         rangeState.addBeacon(beacon);
@@ -456,7 +456,7 @@ public class BeaconService extends Service {
             if (region.matchesBeacon(beacon)) {
                 matched.add(region);
             } else {
-      //          LogManager.d(TAG, "This region (%s) does not match beacon: %s", region, beacon);
+                //          LogManager.d(TAG, "This region (%s) does not match beacon: %s", region, beacon);
             }
 
         }

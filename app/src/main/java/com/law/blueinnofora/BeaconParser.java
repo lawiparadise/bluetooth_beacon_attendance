@@ -15,7 +15,7 @@ import java.util.regex.Pattern;
 
 /**
  * Created by gd2 on 2015-07-02.
- * ºñÄÜÆÄ¼­´Â »ç¿ëµÈ´Ù. ¾î¶»°Ô ºñÄÜÇÊµå¸¦ BLE±¤°í·ÎºÎÅÍ µğÄÚµåÇÏ´Â ¶óÀÌºê·¯¸®¸¦ ¸»ÇÒ ¶§.
+ * ë¹„ì½˜íŒŒì„œëŠ” ì‚¬ìš©ëœë‹¤. ì–´ë–»ê²Œ ë¹„ì½˜í•„ë“œë¥¼ BLEê´‘ê³ ë¡œë¶€í„° ë””ì½”ë“œí•˜ëŠ” ë¼ì´ë¸ŒëŸ¬ë¦¬ë¥¼ ë§í•  ë•Œ.
  *
  */
 public class BeaconParser {
@@ -155,7 +155,7 @@ public class BeaconParser {
             }
 
             if (!found) {
-       //         LogManager.d(TAG, "cannot parse term %s", term);
+                //         LogManager.d(TAG, "cannot parse term %s", term);
                 throw new BeaconLayoutException("Cannot parse beacon layout term: " + term);
             }
         }
@@ -209,21 +209,21 @@ public class BeaconParser {
             if (pdu.getType() == Pdu.GATT_SERVICE_UUID_PDU_TYPE ||
                     pdu.getType() == Pdu.MANUFACTURER_DATA_PDU_TYPE) {
                 pduToParse = pdu;
-             //   if (LogManager.isVerboseLoggingEnabled()) {
-             //       LogManager.d(TAG, "Processing pdu type %02X: %s with startIndex: %d, endIndex: %d", pdu.getType(), bytesToHex(bytesToProcess), pdu.getStartIndex(), pdu.getEndIndex());
-             //   }
+                //   if (LogManager.isVerboseLoggingEnabled()) {
+                //       LogManager.d(TAG, "Processing pdu type %02X: %s with startIndex: %d, endIndex: %d", pdu.getType(), bytesToHex(bytesToProcess), pdu.getStartIndex(), pdu.getEndIndex());
+                //   }
                 break;
             }
             else {
-           //     if (LogManager.isVerboseLoggingEnabled()) {
-            //        LogManager.d(TAG, "Ignoring pdu type %02X", pdu.getType());
-           //     }
+                //     if (LogManager.isVerboseLoggingEnabled()) {
+                //        LogManager.d(TAG, "Ignoring pdu type %02X", pdu.getType());
+                //     }
             }
         }
         if (pduToParse == null) {
-     //       if (LogManager.isVerboseLoggingEnabled()) {
-       //         LogManager.d(TAG, "No PDUs to process in this packet.");
-        //    }
+            //       if (LogManager.isVerboseLoggingEnabled()) {
+            //         LogManager.d(TAG, "No PDUs to process in this packet.");
+            //    }
             return null;
         }
 
@@ -249,27 +249,27 @@ public class BeaconParser {
         if (patternFound == false) {
             // This is not a beacon
             if (getServiceUuid() == null) {
-     //           if (LogManager.isVerboseLoggingEnabled()) {
-  //                  LogManager.d(TAG, "This is not a matching Beacon advertisement. (Was expecting %s.  "
-     //                               + "The bytes I see are: %s", byteArrayToString(typeCodeBytes),
-       //                     bytesToHex(bytesToProcess));
+                //           if (LogManager.isVerboseLoggingEnabled()) {
+                //                  LogManager.d(TAG, "This is not a matching Beacon advertisement. (Was expecting %s.  "
+                //                               + "The bytes I see are: %s", byteArrayToString(typeCodeBytes),
+                //                     bytesToHex(bytesToProcess));
 
-         //       }
+                //       }
             } else {
-         //       if (LogManager.isVerboseLoggingEnabled()) {
-       //             LogManager.d(TAG, "This is not a matching Beacon advertisement. Was expecting %s.  "
-     //                               + "The bytes I see are: %s", byteArrayToString(serviceUuidBytes),
-    //                        byteArrayToString(typeCodeBytes),
-      //                      bytesToHex(bytesToProcess));
-     //           }
+                //       if (LogManager.isVerboseLoggingEnabled()) {
+                //             LogManager.d(TAG, "This is not a matching Beacon advertisement. Was expecting %s.  "
+                //                               + "The bytes I see are: %s", byteArrayToString(serviceUuidBytes),
+                //                        byteArrayToString(typeCodeBytes),
+                //                      bytesToHex(bytesToProcess));
+                //           }
             }
 
             return null;
         } else {
-          //  if (LogManager.isVerboseLoggingEnabled()) {
-        //        LogManager.d(TAG, "This is a recognized beacon advertisement -- %s seen",
-    //                    byteArrayToString(typeCodeBytes));
-      //        }
+            //  if (LogManager.isVerboseLoggingEnabled()) {
+            //        LogManager.d(TAG, "This is a recognized beacon advertisement -- %s seen",
+            //                    byteArrayToString(typeCodeBytes));
+            //        }
         }
 
         ArrayList<Identifier> identifiers = new ArrayList<Identifier>();
@@ -346,7 +346,7 @@ public class BeaconParser {
         return beacon;
     }
 
-    //ºñÄÜÀ¸·ÎºÎÅÍ ±¤°í¸¦ ¾ò´Â´Ù.
+    //ë¹„ì½˜ìœ¼ë¡œë¶€í„° ê´‘ê³ ë¥¼ ì–»ëŠ”ë‹¤.
     public byte[] getBeaconAdvertisementData(Beacon beacon) {
         byte[] advertisingBytes;
 
@@ -416,17 +416,17 @@ public class BeaconParser {
         return this;
     }
 
-    //°è»êÇÑ´Ù. ¹ÙÀÌÆ®ÀÇ »çÀÌÁî¸¦
+    //ê³„ì‚°í•œë‹¤. ë°”ì´íŠ¸ì˜ ì‚¬ì´ì¦ˆë¥¼
     public int getIdentifierByteCount(int identifierNum) {
         return mIdentifierEndOffsets.get(identifierNum) - mIdentifierStartOffsets.get(identifierNum) + 1;
     }
 
-    //ºñÄÜÀÇ identifierÀÇ ¼ıÀÚ¸¦ ¸®ÅÏÇÑ´Ù.
+    //ë¹„ì½˜ì˜ identifierì˜ ìˆ«ìë¥¼ ë¦¬í„´í•œë‹¤.
     public int getIdentifierCount() {
         return mIdentifierStartOffsets.size();
     }
 
-    //ºñÄÜÀÇ µ¥ÀÌÅ¸ÇÊµå ¼ö¸¦ ¸®ÅÏÇÑ´Ù.
+    //ë¹„ì½˜ì˜ ë°ì´íƒ€í•„ë“œ ìˆ˜ë¥¼ ë¦¬í„´í•œë‹¤.
     public int getDataFieldCount() {
         return mDataStartOffsets.size();
     }

@@ -5,12 +5,13 @@ import android.app.IntentService;
 import android.content.Intent;
 import android.util.Log;
 
-public class GCMIntentService extends IntentService {
+public class
+GCMIntentService extends IntentService {
 
     private static final String TAG = "GCMIntentService";
 
     /**
-     * »ı¼ºÀÚ
+     * ìƒì„±ì
      */
     public GCMIntentService() {
         super(TAG);
@@ -19,7 +20,7 @@ public class GCMIntentService extends IntentService {
     }
 
     /*
-     * Àü´Ş¹ŞÀº ÀÎÅÙÆ® Ã³¸®
+     * ì „ë‹¬ë°›ì€ ì¸í…íŠ¸ ì²˜ë¦¬
      */
     @Override
     protected void onHandleIntent(Intent intent) {

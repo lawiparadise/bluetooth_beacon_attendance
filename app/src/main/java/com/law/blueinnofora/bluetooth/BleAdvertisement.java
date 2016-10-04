@@ -7,7 +7,7 @@ import java.util.List;
 
 /**
  * Created by gd2 on 2015-07-02.
- * parseÇÑ´Ù byte array¸¦. BLE±¤°í¸¦ PDU·Î ³ªÅ¸³»¸é¼­.
+ * parseí•œë‹¤ byte arrayë¥¼. BLEê´‘ê³ ë¥¼ PDUë¡œ ë‚˜íƒ€ë‚´ë©´ì„œ.
  */
 public class BleAdvertisement {
     private static final String TAG = "BleAdvertisement";
@@ -43,3 +43,4 @@ public class BleAdvertisement {
         return mPdus;
     }
 }
+

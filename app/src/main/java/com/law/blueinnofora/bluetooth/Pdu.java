@@ -6,7 +6,7 @@ import android.util.Log;
 
 /**
  * Created by gd2 on 2015-07-02.
- * BLE½ºÄµÀ¸·ÎºÎÅÍÀÇ byte stringÀ» payload data unitÀ¸·Î ¹Ù²Û´Ù.
+ * BLEìŠ¤ìº”ìœ¼ë¡œë¶€í„°ì˜ byte stringì„ payload data unitìœ¼ë¡œ ë°”ê¾¼ë‹¤.
  */
 public class Pdu {
     private static final String  TAG = "Pdu";

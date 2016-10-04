@@ -22,10 +22,10 @@ import com.law.blueinnofora.R;
  */
 public class ECTClass extends ActionBarActivity {
     private  Activity ac;
- //   private final Handler mHandler=null;
+    //   private final Handler mHandler=null;
 //   private static ECTClass client = null;
     private Context mContext;
-    public static String STATE="initial"; // Ãâ°á »óÅÂ Á¶Á¤
+    public static String STATE="initial"; // ì¶œê²° ìƒíƒœ ì¡°ì •
 
     protected static final String TAG = "ECTClassActivity";
 
@@ -42,14 +42,14 @@ public class ECTClass extends ActionBarActivity {
         finish();
 
 
-/*        //¿Ö ÀÎÅÙÆ®·Î ÇÏ´ÂÁö´Â ¸ğ¸£°ÚÂî¸¸ ÀÏ´Ü ½Ãµµ
+/*        //ì™œ ì¸í…íŠ¸ë¡œ í•˜ëŠ”ì§€ëŠ” ëª¨ë¥´ê² ì°Œë§Œ ì¼ë‹¨ ì‹œë„
         Log.e(TAG, "3 setResult");
         Intent i = new Intent();
         i.putExtra(STATE, "2");
         setResult(Activity.RESULT_OK, i);
         */
-       // mHandler = new Handler();
-     //   Message msg = mHandler.obtainMessage(MainActivity.ABSENCE);
+        // mHandler = new Handler();
+        //   Message msg = mHandler.obtainMessage(MainActivity.ABSENCE);
 //        Message msg = mHandler.obtainMessage(MainActivity.ATTENDANCE);
 //        mHandler.sendMessage(msg);
 

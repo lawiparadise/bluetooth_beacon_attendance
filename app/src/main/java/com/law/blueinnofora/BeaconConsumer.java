@@ -6,19 +6,19 @@ import android.content.ServiceConnection;
 
 /**
  * Created by gd2 on 2015-07-02.
- * ºñÄÜ°ú »óÈ£ÀÛ¿ëÀ» ¿øÇÏ´Â ¾×Æ¼ºñÆ¼³ª ¼­ºñ½º¸¦ À§ÇÑ ÀÎÅÍÆäÀÌ½º´Ù.
- * ºñÄÜ¸Å³ÊÁö¿Í ÇÔ²² »ç¿ëµÈ´Ù.
- * ºñÄÜ¼­ºñ½º°¡ »ç¿ë·¹µð°¡ µÇ¾úÀ» ¶§ ÄÝ¹éÀ» Á¦°øÇÑ´Ù.
+ * ë¹„ì½˜ê³¼ ìƒí˜¸ìž‘ìš©ì„ ì›í•˜ëŠ” ì•¡í‹°ë¹„í‹°ë‚˜ ì„œë¹„ìŠ¤ë¥¼ ìœ„í•œ ì¸í„°íŽ˜ì´ìŠ¤ë‹¤.
+ * ë¹„ì½˜ë§¤ë„ˆì§€ì™€ í•¨ê»˜ ì‚¬ìš©ëœë‹¤.
+ * ë¹„ì½˜ì„œë¹„ìŠ¤ê°€ ì‚¬ìš©ë ˆë””ê°€ ë˜ì—ˆì„ ë•Œ ì½œë°±ì„ ì œê³µí•œë‹¤.
  */
 public interface BeaconConsumer {
-    //ºñÄÜ¼­ºñ½º°¡ ½ÇÇàµÇ°í ºñÄÜ¸Å´ÏÀú¸¦ ÅëÇØ ³ÊÀÇ ¸í·ÉÀÌ accept µÉ ÁØºñ°¡ µÇ¾úÀ» ¶§ ÄÝ µÈ´Ù.
+    //ë¹„ì½˜ì„œë¹„ìŠ¤ê°€ ì‹¤í–‰ë˜ê³  ë¹„ì½˜ë§¤ë‹ˆì €ë¥¼ í†µí•´ ë„ˆì˜ ëª…ë ¹ì´ accept ë  ì¤€ë¹„ê°€ ë˜ì—ˆì„ ë•Œ ì½œ ëœë‹¤.
     public void onBeaconServiceConnect();
 
-    //ºñÄÜ¸Å´ÏÀú°¡ ³ÊÀÇ ¼­ºñ½º³ª ¾×Æ¼ºñÆ¼ÀÇ ÄÁÅØ½ºÆ®¸¦ °ÙÇßÀ» ¶§ ÄÝ µÈ´Ù.
+    //ë¹„ì½˜ë§¤ë‹ˆì €ê°€ ë„ˆì˜ ì„œë¹„ìŠ¤ë‚˜ ì•¡í‹°ë¹„í‹°ì˜ ì»¨í…ìŠ¤íŠ¸ë¥¼ ê²Ÿí–ˆì„ ë•Œ ì½œ ëœë‹¤.
     public Context getApplicationContext();
-    //ºñÄÜ¼­ºñ½º·ÎºÎÅÍ ºñÄÜÄÁ½´¸Ó°¡ unbind µÇ¾úÀ» ¶§ ºñÄÜ¸Å³ÊÁö¿¡ ÀÇÇØ ÄÝ µÈ´Ù.
+    //ë¹„ì½˜ì„œë¹„ìŠ¤ë¡œë¶€í„° ë¹„ì½˜ì»¨ìŠˆë¨¸ê°€ unbind ë˜ì—ˆì„ ë•Œ ë¹„ì½˜ë§¤ë„ˆì§€ì— ì˜í•´ ì½œ ëœë‹¤.
     public void unbindService(ServiceConnection connection);
-    //ºñÄÜ¼­ºñ½º¿Í ºñÄÜÄÁ½´¸Ó°¡ bind µÇ¾úÀ» ¶§ ÄÝ µÈ´Ù.
+    //ë¹„ì½˜ì„œë¹„ìŠ¤ì™€ ë¹„ì½˜ì»¨ìŠˆë¨¸ê°€ bind ë˜ì—ˆì„ ë•Œ ì½œ ëœë‹¤.
     public boolean bindService(Intent intent, ServiceConnection connection, int mode);
 
 

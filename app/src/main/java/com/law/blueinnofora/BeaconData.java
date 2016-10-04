@@ -2,7 +2,7 @@ package com.law.blueinnofora;
 
 /**
  * Created by gd2 on 2015-07-02.
- * ºñÄÜ°ú ·×·ÃµÈ ¼­¹ö»çÀÌµå µ¥ÀÌÅ¸
+ * ë¹„ì½˜ê³¼ ë¡¼ë ¨ëœ ì„œë²„ì‚¬ì´ë“œ ë°ì´íƒ€
  */
 public interface BeaconData {
     public Double getLatitude();

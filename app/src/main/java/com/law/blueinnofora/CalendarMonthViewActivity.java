@@ -35,20 +35,12 @@ import org.xml.sax.XMLReader;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
-import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
-import java.util.Random;
 
 import javax.xml.parsers.SAXParser;
 import javax.xml.parsers.SAXParserFactory;
-
-import com.google.android.gcm.server.Message;
-import com.google.android.gcm.server.MulticastResult;
-import com.google.android.gcm.server.Sender;
-import com.google.android.gms.gcm.GoogleCloudMessaging;
-
 
 
 public class CalendarMonthViewActivity extends Activity {
@@ -93,14 +85,6 @@ public class CalendarMonthViewActivity extends Activity {
 
     ScheduleDatabase database;
 
-    ////////////////////////////////////////////push
-    Sender sender;
-    ArrayList<String> idList = new ArrayList<String>();
-//    EditText messageInput;
-    private Random random ;
-    private int TTLTime = 60;
-    private	int RETRY = 3;
-
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
@@ -118,22 +102,6 @@ public class CalendarMonthViewActivity extends Activity {
         });*/
 
 
-        sender = new Sender(GCMInfo.GOOGLE_API_KEY);
-
-
-        try {
-            // ´Ü¸» µî·ÏÇÏ°í µî·Ï ID ¹Ş±â
-            registerDevice();
-
-        } catch(Exception ex) {
-            ex.printStackTrace();
-        }
-
-
-        /////////////////////////////////////////////////////
-
-
-
         monthView = (GridView) findViewById(R.id.monthView);
         monthViewAdapter = new CalendarMonthAdapter(this);
         monthView.setAdapter(monthViewAdapter);
@@ -142,25 +110,25 @@ public class CalendarMonthViewActivity extends Activity {
 
         monthView.setOnItemClickListener(new OnItemClickListener() {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                MonthItem curItem = (MonthItem) monthViewAdapter.getItem(position); //³»°¡ ¼±ÅÃÇÑ ³¯Â¥¿¡ °üÇÑ ³»¿ë
+                MonthItem curItem = (MonthItem) monthViewAdapter.getItem(position); //ë‚´ê°€ ì„ íƒí•œ ë‚ ì§œì— ê´€í•œ ë‚´ìš©
                 int day = curItem.getDay();
 
-                //Toast.makeText(getApplicationContext(), day + "ÀÏÀÌ ¼±ÅÃµÇ¾ú½À´Ï´Ù.", 1000).show();
+                //Toast.makeText(getApplicationContext(), day + "ì¼ì´ ì„ íƒë˜ì—ˆìŠµë‹ˆë‹¤.", 1000).show();
 
-                monthViewAdapter.setSelectedPosition(position); //³»°¡ ¼±ÅÃÇÑ ³¯Â¥¸¦ ¼¼ÆÃÇØÁÜ
+                monthViewAdapter.setSelectedPosition(position); //ë‚´ê°€ ì„ íƒí•œ ë‚ ì§œë¥¼ ì„¸íŒ…í•´ì¤Œ
                 monthViewAdapter.notifyDataSetChanged();
 
                 outScheduleList = monthViewAdapter.getSchedule(position);
                 if (outScheduleList == null) {
                     outScheduleList = new ArrayList<ScheduleListItem>();
                 }
-                scheduleAdapter.scheduleList = outScheduleList; //ÀÌ°Å¿¡¼­ ¹®Á¦¹ß»ı
+                scheduleAdapter.scheduleList = outScheduleList; //ì´ê±°ì—ì„œ ë¬¸ì œë°œìƒ
 
                 scheduleAdapter.notifyDataSetChanged();
 
                 // show ScheduleInputActivity if the position is already selected
-                if (position == curPosition) { //µÎ¹ø Å¬¸¯ÇßÀ» ¶§ ½ÇÇàµÇ´Â ÄÚµå
-                    //showScheduleInput();
+                if (position == curPosition) { //ë‘ë²ˆ í´ë¦­í–ˆì„ ë•Œ ì‹¤í–‰ë˜ëŠ” ì½”ë“œ
+                    showScheduleInput();
                 }
 
                 // set schedule to the TextView
@@ -219,121 +187,25 @@ public class CalendarMonthViewActivity extends Activity {
 
     }
 
-    private void registerDevice() {
-     //   Toast.makeText(this,"hi", Toast.LENGTH_SHORT).show();
-        RegisterThread registerObj = new RegisterThread();
-        registerObj.start();
-
-    }
-
-    class RegisterThread extends Thread {
-        public void run() {
-
-            try {
-                GoogleCloudMessaging gcm = GoogleCloudMessaging.getInstance(getApplicationContext());
-                String regId = gcm.register(GCMInfo.PROJECT_ID);
-            /*    println("Çª½Ã ¼­ºñ½º¸¦ À§ÇØ ´Ü¸»À» µî·ÏÇß½À´Ï´Ù.");
-                println("registeroO0l ID : " + regId);*/
-
-                // µî·Ï ID ¸®½ºÆ®¿¡ Ãß°¡ (ÇöÀç´Â 1°³¸¸)
-                idList.clear();
-                idList.add(regId);
-            //    idList.add("APA91bH9ol0-NGDeZv4OObcyFb9n4rk0nlbLQ_5WPF4qX_Yzc6Qng-RkU_6zEfCVnoCaQ6yQjx8OZxO-Tp_Y9T79hSRm9GpCOFzuzYdC27Pi2uJpXcb1zBlh3wz_uA-i8TmKrhMs_PoGLKA-eMVocoN6om-KNGuvGA");
-             //   idList.add("APA91bESOI9fkEOnqLZr2sLGlxR3ooWOYtED7sq6hcKZ5_dqtU8X5inp9CkWs5Prdm6DH8Us9hTcizYOwOCpQr0bXnn6sBLMdixvRt5EcJChNh0hNEU6qPPEHvfTMPRiWiVodsUtDVfT");
-                idList.add("APA91bE9rmF-3aCzbgPFiJGh746ganpc9H6OvPI1K2jB9u27A3VZhKKifHeGkh6oRaDTNBCtIKsilhvwWOAHetExLhonEJhhQohwIm1sEqHUSdmA9zOi7PZihxKPKGPzhSBL9WNSqy1YbO6BhKKMU1CwYIIV7vyLjw");
-                Log.e(TAG,"MY : register thread check");
-            } catch(Exception ex) {
-                ex.printStackTrace();
-            }
-
-        }
-    }
-    private void sendToDevice(String data) {
-
-        SendThread thread = new SendThread(data);
-        thread.start();
-
-    }
-
-    class SendThread extends Thread {
-        String data;
-
-        public SendThread(String inData) {
-            data = inData;
-        }
-
-        public void run() {
-
-            try {
-                sendText(data);
-            } catch(Exception ex) {
-                ex.printStackTrace();
-            }
-
-        }
-
-        public void sendText(String msg)
-                throws Exception
-        {
-
-            if( random == null){
-                random = new Random(System.currentTimeMillis());
-            }
-
-            String messageCollapseKey = String.valueOf(Math.abs(random.nextInt()));
-
-            try {
-                // Çª½Ã ¸Ş½ÃÁö Àü¼ÛÀ» À§ÇÑ ¸Ş½ÃÁö °´Ã¼ »ı¼º ¹× È¯°æ ¼³Á¤
-                Message.Builder gcmMessageBuilder = new Message.Builder();
-                gcmMessageBuilder.collapseKey(messageCollapseKey).delayWhileIdle(true).timeToLive(TTLTime);
-                gcmMessageBuilder.addData("type","text");
-                gcmMessageBuilder.addData("command", "show");
-                gcmMessageBuilder.addData("data", URLEncoder.encode(data, "UTF-8"));
-
-                Message gcmMessage = gcmMessageBuilder.build();
-
-                // ¿©·¯ ´Ü¸»¿¡ ¸Ş½ÃÁö Àü¼Û ÈÄ °á°ú È®ÀÎ
-                MulticastResult resultMessage = sender.send(gcmMessage, idList, RETRY);
-                String output = "GCM rightÀü¼Û ¸Ş½ÃÁö °á°ú => " + resultMessage.getMulticastId()
-                        + "," + resultMessage.getRetryMulticastIds() + "," + resultMessage.getSuccess();
-
-           //     println(output);
-
-            } catch(Exception ex) {
-                ex.printStackTrace();
-
-                String output = "GCM ¸Ş½ÃÁö Àü¼Û °úÁ¤¿¡¼­ ¿¡·¯ ¹ß»ı : " + ex.toString();
-           //     println(output);
-
-            }
-
-        }
-    }
-
-
-
     @Override
     public void onStart(){
         super.onStart();
 
-            saveAuto();
+        saveAuto();
 
     }
 
     public void onScanClicked(View v){
-        Toast.makeText(this,"Scanning...",Toast.LENGTH_SHORT).show();
+        Toast.makeText(this,"Scan start!! And Popup if scanned!!",Toast.LENGTH_SHORT).show();
         beaconservice.setRESCAN(true);
-
+        finish();
     }
 
-    @Override
-    protected void onNewIntent(Intent intent){
-        Log.e(TAG,"MY : onNewIntent!!");
+/*
+    public void onNewIntent(){
         saveAuto();
-
-        super.onNewIntent(intent);
     }
-
+*/
 
 
 
@@ -344,17 +216,17 @@ public class CalendarMonthViewActivity extends Activity {
             MonthItem curItem = (MonthItem) monthViewAdapter.getItem(monthViewAdapter.getTodayPosition());
             int day = curItem.getDay();
 
-            monthViewAdapter.setSelectedPosition(monthViewAdapter.getTodayPosition()); //³»°¡ ¼±ÅÃÇÑ ³¯Â¥¸¦ ¼¼ÆÃÇØÁÜ
+            monthViewAdapter.setSelectedPosition(monthViewAdapter.getTodayPosition()); //ë‚´ê°€ ì„ íƒí•œ ë‚ ì§œë¥¼ ì„¸íŒ…í•´ì¤Œ
             monthViewAdapter.notifyDataSetChanged();
             outScheduleList = monthViewAdapter.getSchedule(monthViewAdapter.getTodayPosition());
             if (outScheduleList == null) {
                 outScheduleList = new ArrayList<ScheduleListItem>();
             }
-            scheduleAdapter.scheduleList = outScheduleList; //ÀÌ°Ô ¹®Á¦´Ù. ±Ùµ¥ ¶Ç ÀßµÇ³×
+            scheduleAdapter.scheduleList = outScheduleList; //ì´ê²Œ ë¬¸ì œë‹¤. ê·¼ë° ë˜ ì˜ë˜ë„¤
             scheduleAdapter.notifyDataSetChanged();
 
             showScheduleInput();
-           // finish();
+            // finish();
 
         }
     }
@@ -627,7 +499,7 @@ public class CalendarMonthViewActivity extends Activity {
         switch (id) {
             case WEATHER_PROGRESS_DIALOG:
                 ProgressDialog progressDialog = new ProgressDialog(this);
-                progressDialog.setMessage("³¯¾¾Á¤º¸ °¡Á®¿À´Â Áß...");
+                progressDialog.setMessage("ë‚ ì”¨ì •ë³´ ê°€ì ¸ì˜¤ëŠ” ì¤‘...");
                 progressDialog.setCancelable(true);
                 progressDialog.setOnCancelListener(new DialogInterface.OnCancelListener() {
                     public void onCancel(DialogInterface dialog) {
@@ -638,8 +510,8 @@ public class CalendarMonthViewActivity extends Activity {
                 return progressDialog;
             case WEATHER_SAVED_DIALOG:
                 AlertDialog.Builder alertBuilder = new AlertDialog.Builder(this);
-                alertBuilder.setMessage("³¯¾¾Á¤º¸¸¦ ÀúÀåÇÏ¿´½À´Ï´Ù.");
-                alertBuilder.setPositiveButton("È®ÀÎ", new DialogInterface.OnClickListener() {
+                alertBuilder.setMessage("ë‚ ì”¨ì •ë³´ë¥¼ ì €ì¥í•˜ì˜€ìŠµë‹ˆë‹¤.");
+                alertBuilder.setPositiveButton("í™•ì¸", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
                         dialog.dismiss();
                     }
@@ -670,7 +542,7 @@ public class CalendarMonthViewActivity extends Activity {
         super.onActivityResult(requestCode, resultCode, intent);
 
         if (requestCode == REQUEST_CODE_SCHEDULE_INPUT) {
-            if (intent == null) { //ÀÌ°Å ¾øÀ¸¸é ¿¡·¯¶ä, ÀÎÅÙÆ®°¡ ºñ¾îÀÖ´Âµ¥ ÀúÀå½ÃÅ°·ÁÇß±â¶§¹®.
+            if (intent == null) { //ì´ê±° ì—†ìœ¼ë©´ ì—ëŸ¬ëœ¸, ì¸í…íŠ¸ê°€ ë¹„ì–´ìˆëŠ”ë° ì €ì¥ì‹œí‚¤ë ¤í–ˆê¸°ë•Œë¬¸.
                 Log.e(TAG,"MY : onActivityResult");
                 return;
             }
@@ -727,24 +599,15 @@ public class CalendarMonthViewActivity extends Activity {
 
                 monthViewAdapter.notifyDataSetChanged();
 
-                        sendToDevice(app.getID());
-
             }
         }
         else if(requestCode==REQUEST_CODE_STUDENT_ID){
-            if (intent == null) { //ÀÌ°Å ¾øÀ¸¸é ¿¡·¯¶ä, ÀÎÅÙÆ®°¡ ºñ¾îÀÖ´Âµ¥ ÀúÀå½ÃÅ°·ÁÇß±â¶§¹®.
+            if (intent == null) { //ì´ê±° ì—†ìœ¼ë©´ ì—ëŸ¬ëœ¸, ì¸í…íŠ¸ê°€ ë¹„ì–´ìˆëŠ”ë° ì €ì¥ì‹œí‚¤ë ¤í–ˆê¸°ë•Œë¬¸.
                 Log.e(TAG,"MY : null intent");
                 return;
             }
-            String name = intent.getStringExtra("name");
-            String id= intent.getStringExtra("id");
-            String major=intent.getStringExtra("major");
 
-            Toast.makeText(this,"name:"+name+" id:"+id+" major:"+major,Toast.LENGTH_SHORT).show();
-
-            app.setSTUDENTNAME(name);
-            app.setID(id);
-            app.setMAJOR(major);
+            app.setSTUDENTNAME(intent.getStringExtra("name"));
 
         }
 

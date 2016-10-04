@@ -4,10 +4,10 @@ import java.util.Collection;
 
 /**
  * Created by gd2 on 2015-07-02.
- * ÀÌ ÀÎÅÍÆäÀÌ½º´Â ºñÄÜ°Å¸®¾Ë¸²À» ¼ö½Å¹Ş´Â Å¬·¡½º¿¡ ÀÇÇØ implementµÈ´Ù.
+ * ì´ ì¸í„°í˜ì´ìŠ¤ëŠ” ë¹„ì½˜ê±°ë¦¬ì•Œë¦¼ì„ ìˆ˜ì‹ ë°›ëŠ” í´ë˜ìŠ¤ì— ì˜í•´ implementëœë‹¤.
  */
 public interface RangeNotifier {
-    //1ÃÊ¿¡ ÇÑ¹ø¾¿ Äİ µÈ´Ù.  ºñÀúºí ºñÄÜ°úÀÇ °Å¸®¸¦ Àç±âÀ§ÇØ
+    //1ì´ˆì— í•œë²ˆì”© ì½œ ëœë‹¤.  ë¹„ì €ë¸” ë¹„ì½˜ê³¼ì˜ ê±°ë¦¬ë¥¼ ì¬ê¸°ìœ„í•´
     public void didRangeBeaconsInRegion(Collection<Beacon> beacons, Region region);
 
 }

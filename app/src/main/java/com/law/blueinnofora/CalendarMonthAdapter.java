@@ -358,7 +358,7 @@ public class CalendarMonthAdapter extends BaseAdapter {
 
             default:
                 if(((year%4==0)&&(year%100!=0)) || (year%400==0) ) {
-                    return (29);   // 2¿ù À±³â°è»ê
+                    return (29);   // 2ì›” ìœ¤ë…„ê³„ì‚°
                 } else {
                     return (28);
                 }

@@ -6,7 +6,7 @@ import android.util.Log;
 
 /**
  * Created by gd2 on 2015-07-02.
- * ¾ÆÀÌºñÄÜ¸¸ ÆÄ½ÌÇÔ
+ * ì•„ì´ë¹„ì½˜ë§Œ íŒŒì‹±í•¨
  */
 public class IBeaconParser extends BeaconParser {
     public static final String TAG = "IBeaconParser";
@@ -15,10 +15,10 @@ public class IBeaconParser extends BeaconParser {
         super();
         Log.i(TAG, "MY : CON : IBeaconParser is constructed!!");
         mHardwareAssistManufacturers = new int[]{0x0118}; // Radius networks
-        //ÇÏµå¿ş¾î Àû¿ë Á¦Á¶»ç ¼öÁ¤ÇØ¾ßÇÒµí? ¾ÆÀÌºñÄÜÀ¸·Î
-       this.setBeaconLayout("m:2-3=0215,i:4-19,i:20-21,i:22-23,p:24-24");
+        //í•˜ë“œì›¨ì–´ ì ìš© ì œì¡°ì‚¬ ìˆ˜ì •í•´ì•¼í• ë“¯? ì•„ì´ë¹„ì½˜ìœ¼ë¡œ
+        this.setBeaconLayout("m:2-3=0215,i:4-19,i:20-21,i:22-23,p:24-24");
 
-        //¾ËÆ®ºñÄÜ ÀÌ°É·Î ÇØµµ ¾ÆÀÌºñÄÜÀÌ ½ºÄµÀÌ µÈ´Ù.
+        //ì•ŒíŠ¸ë¹„ì½˜ ì´ê±¸ë¡œ í•´ë„ ì•„ì´ë¹„ì½˜ì´ ìŠ¤ìº”ì´ ëœë‹¤.
         //this.setBeaconLayout("m:2-3=beac,i:4-19,i:20-21,i:22-23,p:24-24,d:25-25");
     }
     @TargetApi(5)

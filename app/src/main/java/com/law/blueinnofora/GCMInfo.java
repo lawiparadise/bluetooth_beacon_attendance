@@ -3,25 +3,25 @@ package com.law.blueinnofora;
 
 
 /**
- * GCM °ü·Ã Á¤º¸ º¯¼ö/»ó¼ö ¼±¾ğ
+ * GCM ê´€ë ¨ ì •ë³´ ë³€ìˆ˜/ìƒìˆ˜ ì„ ì–¸
  */
 public class GCMInfo {
 
     /**
      * Project Id registered to use GCM.
-     * ´Ü¸» µî·ÏÀ» À§ÇÑ ÇÊ¿äÇÑ ID
+     * ë‹¨ë§ ë“±ë¡ì„ ìœ„í•œ í•„ìš”í•œ ID
      */
     public static final String PROJECT_ID = "1004588246065";
 
     /**
      * Google API Key generated for service access
-     * ¼­¹ö : Çª½Ã ¸Ş½ÃÁö Àü¼ÛÀ» À§ÇØ ÇÊ¿äÇÑ KEY
+     * ì„œë²„ : í‘¸ì‹œ ë©”ì‹œì§€ ì „ì†¡ì„ ìœ„í•´ í•„ìš”í•œ KEY
      */
     public static final String GOOGLE_API_KEY = "AIzaSyCxgSpw5aHnyVE8_MhnxWji5qK8Cjl6zzQ";
 
     /**
      * Registration ID for this device
-     * ´Ü¸» µî·Ï ÈÄ ¼ö½ÅÇÑ µî·Ï ID
+     * ë‹¨ë§ ë“±ë¡ í›„ ìˆ˜ì‹ í•œ ë“±ë¡ ID
      */
     public static String RegistrationId = "";
 

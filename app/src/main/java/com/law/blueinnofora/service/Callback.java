@@ -38,7 +38,7 @@ public class Callback {
         if (intentPackageName != null) {
             intent = new Intent();
             intent.setComponent(new ComponentName(intentPackageName, "com.law.blueinnofora.BeaconIntentProcessor"));
-            //ÀÌ ºÎºĞÀÌ ÇÙ½ÉÀÌ´Ù. BeaconIntentProcessor¸¦ ÀÎÅÙÆ®¿¡ ³Ö°í ±×°É ¹Ø¿¡ callÇÔ¼ö¿¡¼­ ½ÇÇà½ÃÄÑÁØ´Ù!! ¿©±âºüÁö¸é ½ÇÇà ¾ÈµÈ´Ù.
+            //ì´ ë¶€ë¶„ì´ í•µì‹¬ì´ë‹¤. BeaconIntentProcessorë¥¼ ì¸í…íŠ¸ì— ë„£ê³  ê·¸ê±¸ ë°‘ì— callí•¨ìˆ˜ì—ì„œ ì‹¤í–‰ì‹œì¼œì¤€ë‹¤!! ì—¬ê¸°ë¹ ì§€ë©´ ì‹¤í–‰ ì•ˆëœë‹¤.
 
         }
     }
@@ -59,7 +59,7 @@ public class Callback {
     public boolean call(Context context, String dataName, Parcelable data) {
         Log.e(TAG, "MY : callback call is start!!");
         if (intent != null) {
-       //     LogManager.d(TAG, "attempting callback via intent: %s", intent.getComponent());
+            //     LogManager.d(TAG, "attempting callback via intent: %s", intent.getComponent());
             intent.putExtra(dataName, data);
             context.startService(intent);
             return true;

@@ -26,7 +26,7 @@ public class ScheduleInputActivity extends Activity {
     public static final String TAG = "ScheduleInputActivity";
     FirstStartApp app;
 
-  //  EditText messageInput;
+    //  EditText messageInput;
     Button subject;
     Button student;
     Button timeButton;
@@ -50,11 +50,11 @@ public class ScheduleInputActivity extends Activity {
         app=(FirstStartApp)getApplicationContext();
         setTitle("Attendance Check");
 
-    //    messageInput = (EditText) findViewById(R.id.messageInput);
+        //    messageInput = (EditText) findViewById(R.id.messageInput);
         subject=(Button)findViewById(R.id.subject);
         subject.setText("Circuit");
         student=(Button)findViewById(R.id.student);
-   //     student.setText("HYUN HONG");
+        //     student.setText("HYUN HONG");
         student.setText(app.getSTUDENTNAME());
 
 
@@ -93,11 +93,11 @@ public class ScheduleInputActivity extends Activity {
             }
         });
 
-        Button saveButton = (Button) findViewById(R.id.saveButton); //¿Ã πˆ∆∞¿∏∑Œ ¿˙¿Â«—¥Ÿ.
+        Button saveButton = (Button) findViewById(R.id.saveButton); //Ïù¥ Î≤ÑÌäºÏúºÎ°ú Ï†ÄÏû•ÌïúÎã§.
         saveButton.setOnClickListener(new OnClickListener() {
             public void onClick(View v) {
-               // String messageStr = messageInput.getText().toString();
-                 String messageStr = subject.getText().toString();
+                // String messageStr = messageInput.getText().toString();
+                String messageStr = subject.getText().toString();
                 String timeStr = timeButton.getText().toString();
 
                 Intent intent = new Intent();
@@ -105,7 +105,7 @@ public class ScheduleInputActivity extends Activity {
                 intent.putExtra("message", messageStr);
                 intent.putExtra("weather", selectedWeather);
 
-                setResult(RESULT_OK, intent); //CalendarMonthViewActivity∑Œ ∞·∞˙∞™¿ª ∫∏≥Ω¥Ÿ.
+                setResult(RESULT_OK, intent); //CalendarMonthViewActivityÎ°ú Í≤∞Í≥ºÍ∞íÏùÑ Î≥¥ÎÇ∏Îã§.
 
                 finish();
             }

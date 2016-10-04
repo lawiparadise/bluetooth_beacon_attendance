@@ -15,9 +15,9 @@ import java.util.List;
 
 /**
  * Created by gd2 on 2015-07-02.
- * À¯Àú°¡ ¾ÛÀ» ¹é±×¶ó¿îµå¿¡¼­ µ¹¸®´Â°É ¼Â¾÷ÇØÁÖ´Â°É Çã¶ôÇØÁØ´Ù.ºñÄÜ·¹Áö¿Â¿¡ µé¾î°¬À» °æ¿ì
- * ÀÎ½ºÅÏÆ® ¸¸µé°í ·¹ÆÛ·±½º¸¦ È¦µùÇÏ´Â°ÍÀ¸·Î ºñÄÜ¿¡´ëÇÑ ¹é±×¶ó¿îµå ½ºÄ³´×ÀÌ ¾ß±âµÈ´Ù.
- * ¸ËÄª ºñÄÜÀÌ ¹ß°ßµÇ¸é ºÎÆ®½ºÆ®·¦³ëÆ¼ÆÄÀÌ¾îÀÇ didEnterRegionÀÌ Äİ µÈ´Ù.
+ * ìœ ì €ê°€ ì•±ì„ ë°±ê·¸ë¼ìš´ë“œì—ì„œ ëŒë¦¬ëŠ”ê±¸ ì…‹ì—…í•´ì£¼ëŠ”ê±¸ í—ˆë½í•´ì¤€ë‹¤.ë¹„ì½˜ë ˆì§€ì˜¨ì— ë“¤ì–´ê°”ì„ ê²½ìš°
+ * ì¸ìŠ¤í„´íŠ¸ ë§Œë“¤ê³  ë ˆí¼ëŸ°ìŠ¤ë¥¼ í™€ë”©í•˜ëŠ”ê²ƒìœ¼ë¡œ ë¹„ì½˜ì—ëŒ€í•œ ë°±ê·¸ë¼ìš´ë“œ ìŠ¤ìºë‹ì´ ì•¼ê¸°ëœë‹¤.
+ * ë§·ì¹­ ë¹„ì½˜ì´ ë°œê²¬ë˜ë©´ ë¶€íŠ¸ìŠ¤íŠ¸ë©ë…¸í‹°íŒŒì´ì–´ì˜ didEnterRegionì´ ì½œ ëœë‹¤.
  */
 public class RegionBootstrap {
     protected static final String TAG = "AppStarter";
@@ -37,9 +37,9 @@ public class RegionBootstrap {
         this.application = application;
         regions = new ArrayList<Region>();
         regions.add(region);
-        beaconConsumer = new InternalBeaconConsumer(); //¾ê¸¦ ÄÁ½´¸Ó ¸¸µé¾î ³õ°í
-        beaconManager.bind(beaconConsumer); //¸¸µç ÄÁ½´¸Ó·Î ¸Å´ÏÀúÀÇ ¹ÙÀÎµå¸¦ ÇÔ ¸Å´ÏÀú¿¡ ¹ÙÀÎµå¸¦ ÇÏ´Â°Å ¾È¿¡¼­ ºñÄÜ¼­ºñ½º°¡ ¸¸µé¾îÁö´Âµí
-  //      LogManager.d(TAG, "Waiting for BeaconService connection");
+        beaconConsumer = new InternalBeaconConsumer(); //ì–˜ë¥¼ ì»¨ìŠˆë¨¸ ë§Œë“¤ì–´ ë†“ê³ 
+        beaconManager.bind(beaconConsumer); //ë§Œë“  ì»¨ìŠˆë¨¸ë¡œ ë§¤ë‹ˆì €ì˜ ë°”ì¸ë“œë¥¼ í•¨ ë§¤ë‹ˆì €ì— ë°”ì¸ë“œë¥¼ í•˜ëŠ”ê±° ì•ˆì—ì„œ ë¹„ì½˜ì„œë¹„ìŠ¤ê°€ ë§Œë“¤ì–´ì§€ëŠ”ë“¯
+        //      LogManager.d(TAG, "Waiting for BeaconService connection");
         Log.i(TAG,"MY : Con : Waiting for BeaconService connection");
 
     }
@@ -55,11 +55,11 @@ public class RegionBootstrap {
 
         beaconConsumer = new InternalBeaconConsumer();
         beaconManager.bind(beaconConsumer);
-    //    LogManager.d(TAG, "Waiting for BeaconService connection");
+        //    LogManager.d(TAG, "Waiting for BeaconService connection");
         Log.i(TAG,"MY : CON2 : RegionBootStrap is constructed!!, waiting for beaconservice connection");
     }
 
-    //Ãß°¡ÀûÀÎ ºÎÆ®½ºÆ®·¦ Äİ¹éÀ» ¸·´Â´Ù. ÇÑ¹ø ¸®½ÃºêµÈ ÀÌÈÄ¿¡.
+    //ì¶”ê°€ì ì¸ ë¶€íŠ¸ìŠ¤íŠ¸ë© ì½œë°±ì„ ë§‰ëŠ”ë‹¤. í•œë²ˆ ë¦¬ì‹œë¸Œëœ ì´í›„ì—.
     public void disable() {
         Log.e(TAG,"MY : disable for once received");
         if (disabled) {
@@ -71,7 +71,7 @@ public class RegionBootstrap {
                 beaconManager.stopMonitoringBeaconsInRegion(region);
             }
         } catch (RemoteException e) {
-       //     LogManager.e(e, TAG, "Can't stop bootstrap regions");
+            //     LogManager.e(e, TAG, "Can't stop bootstrap regions");
             Log.i(TAG,"MY : Can't stop bootstrap regions");
         }
         beaconManager.unbind(beaconConsumer);
@@ -85,11 +85,11 @@ public class RegionBootstrap {
         @Override
         public void onBeaconServiceConnect() {
             Log.i(TAG,"MY : onBeaconServiceConnect");
-        //    LogManager.d(TAG, "Activating background region monitoring");
+            //    LogManager.d(TAG, "Activating background region monitoring");
             beaconManager.setMonitorNotifier(application);
             try {
                 for (Region region : regions) {
-                  //  LogManager.d(TAG, "Background region monitoring activated for region %s", region);
+                    //  LogManager.d(TAG, "Background region monitoring activated for region %s", region);
                     Log.i(TAG, "MY : Background region monitoring activated for region");
 
                     beaconManager.startMonitoringBeaconsInRegion(region);
@@ -101,7 +101,7 @@ public class RegionBootstrap {
                     }
                 }
             } catch (RemoteException e) {
-              //  LogManager.e(e, TAG, "Can't set up bootstrap regions");
+                //  LogManager.e(e, TAG, "Can't set up bootstrap regions");
                 Log.i(TAG,"MY : Can't set up bootstrap regions");
 
             }

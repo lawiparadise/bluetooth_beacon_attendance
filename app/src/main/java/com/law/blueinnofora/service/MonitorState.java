@@ -51,21 +51,21 @@ public class MonitorState {
         }
         return false;
     }
-    public boolean isNewlyOutside() {  //¾ÈÀÎÁö ¹ÛÀÎÁö ÆÇ´Ü?
+    public boolean isNewlyOutside() {  //ì•ˆì¸ì§€ ë°–ì¸ì§€ íŒë‹¨?
         if (inside) {
             if (lastSeenTime > 0 && (new Date()).getTime() - lastSeenTime > INSIDE_EXPIRATION_MILLIS) {
                 inside = false;
-          //      LogManager.d(TAG, "We are newly outside the region because the lastSeenTime of %s "
-           //                     + "was %s seconds ago, and that is over the expiration duration "
-            //                    + "of %s", lastSeenTime, System.currentTimeMillis() - lastSeenTime,
-           //             INSIDE_EXPIRATION_MILLIS);
+                //      LogManager.d(TAG, "We are newly outside the region because the lastSeenTime of %s "
+                //                     + "was %s seconds ago, and that is over the expiration duration "
+                //                    + "of %s", lastSeenTime, System.currentTimeMillis() - lastSeenTime,
+                //             INSIDE_EXPIRATION_MILLIS);
                 lastSeenTime = 0l;
                 return true;
             }
         }
         return false;
     }
-    public boolean isInside() {//¿©±â¼­ ¾È¿¡ ÀÖ³Ä°í ¹¯´Â°ÅÁö
+    public boolean isInside() {//ì—¬ê¸°ì„œ ì•ˆì— ìˆëƒê³  ë¬»ëŠ”ê±°ì§€
         if (inside) {
             if (!isNewlyOutside()) {
                 return true;

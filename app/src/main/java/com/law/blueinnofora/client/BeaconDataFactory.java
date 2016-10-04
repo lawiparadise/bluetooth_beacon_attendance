@@ -5,7 +5,7 @@ import com.law.blueinnofora.BeaconDataNotifier;
 
 /**
  * Created by gd2 on 2015-07-02.
- * ¿ÜºÎ ºñÄÜµ¥ÀÌÅ¸¿¡ Á¢±Ù?
+ * ì™¸ë¶€ ë¹„ì½˜ë°ì´íƒ€ì— ì ‘ê·¼?
  */
 public interface BeaconDataFactory {
     public void requestBeaconData(Beacon beacon, BeaconDataNotifier notifier);

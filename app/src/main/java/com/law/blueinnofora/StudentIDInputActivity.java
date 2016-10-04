@@ -14,7 +14,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TimePicker;
-import android.widget.Toast;
 
 import java.io.File;
 import java.text.SimpleDateFormat;
@@ -25,7 +24,7 @@ public class StudentIDInputActivity extends Activity {
     public static final String TAG = "StudentIDInputActivity";
 
 
-  //  EditText messageInput;
+    //  EditText messageInput;
 
     EditText studentName;
     EditText studentID;
@@ -40,9 +39,9 @@ public class StudentIDInputActivity extends Activity {
 
 //    public static final int DIALOG_TIME = 1101;
 
- //   public static SimpleDateFormat timeFormat = new SimpleDateFormat("HH:mm");
+    //   public static SimpleDateFormat timeFormat = new SimpleDateFormat("HH:mm");
 
- //   Date selectedDate;
+    //   Date selectedDate;
 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -55,7 +54,7 @@ public class StudentIDInputActivity extends Activity {
         major=(EditText)findViewById(R.id.majorInput);
 
 
-    //    messageInput = (EditText) findViewById(R.id.messageInput);
+        //    messageInput = (EditText) findViewById(R.id.messageInput);
 /*
         subject=(Button)findViewById(R.id.subject);
         subject.setText("Circuit");
@@ -99,11 +98,11 @@ public class StudentIDInputActivity extends Activity {
             }
         });*/
 
-        Button saveButton = (Button) findViewById(R.id.saveButton); //¿Ã πˆ∆∞¿∏∑Œ ¿˙¿Â«—¥Ÿ.
+        Button saveButton = (Button) findViewById(R.id.saveButton); //Ïù¥ Î≤ÑÌäºÏúºÎ°ú Ï†ÄÏû•ÌïúÎã§.
         saveButton.setOnClickListener(new OnClickListener() {
             public void onClick(View v) {
-               // String messageStr = messageInput.getText().toString();
-                 String name = studentName.getText().toString();
+                // String messageStr = messageInput.getText().toString();
+                String name = studentName.getText().toString();
                 String id = studentID.getText().toString();
                 String majo = major.getText().toString();
 
@@ -112,8 +111,7 @@ public class StudentIDInputActivity extends Activity {
                 intent.putExtra("id", id);
                 intent.putExtra("major", majo);
 
-                setResult(RESULT_OK, intent); //CalendarMonthViewActivity∑Œ ∞·∞˙∞™¿ª ∫∏≥Ω¥Ÿ.
-
+                setResult(RESULT_OK, intent); //CalendarMonthViewActivityÎ°ú Í≤∞Í≥ºÍ∞íÏùÑ Î≥¥ÎÇ∏Îã§.
 
                 finish();
             }

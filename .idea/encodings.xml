@@ -1,8 +1,72 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="Encoding">
+  <component name="Encoding" defaultCharsetForPropertiesFiles="UTF-8">
+    <file url="file://$PROJECT_DIR$/app/.gitignore" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/app/src/main/java/com/law/blueinnofora/Beacon.java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/app/src/main/java/com/law/blueinnofora/MY/FirstStartApp.java" charset="windows-1251" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/com/law/blueinnofora/BeaconConsumer.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/com/law/blueinnofora/BeaconData.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/com/law/blueinnofora/BeaconDataNotifier.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/com/law/blueinnofora/BeaconIntentProcessor.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/com/law/blueinnofora/BeaconManager.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/com/law/blueinnofora/BeaconParser.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/com/law/blueinnofora/BleNotAvailableException.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/com/law/blueinnofora/CalendarMonthAdapter.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/com/law/blueinnofora/CalendarMonthViewActivity.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/com/law/blueinnofora/GCMInfo.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/com/law/blueinnofora/GCMIntentService.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/com/law/blueinnofora/IBeacon.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/com/law/blueinnofora/IBeaconParser.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/com/law/blueinnofora/Identifier.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/com/law/blueinnofora/MY/ECTClass.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/com/law/blueinnofora/MY/FirstStartApp.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/com/law/blueinnofora/MY/MainActivity.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/com/law/blueinnofora/MonitorNotifier.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/com/law/blueinnofora/MonthItem.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/com/law/blueinnofora/MonthItemView.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/com/law/blueinnofora/RangeNotifier.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/com/law/blueinnofora/Region.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/com/law/blueinnofora/ScheduleDatabase.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/com/law/blueinnofora/ScheduleInputActivity.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/com/law/blueinnofora/ScheduleListAdapter.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/com/law/blueinnofora/ScheduleListItem.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/com/law/blueinnofora/ScheduleListItemView.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/com/law/blueinnofora/StudentIDInputActivity.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/com/law/blueinnofora/WeatherCurrentCondition.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/com/law/blueinnofora/WeatherHandler.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/com/law/blueinnofora/bluetooth/BleAdvertisement.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/com/law/blueinnofora/bluetooth/BluetoothCrashResolver.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/com/law/blueinnofora/bluetooth/Pdu.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/com/law/blueinnofora/client/BeaconDataFactory.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/com/law/blueinnofora/client/DataProviderException.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/com/law/blueinnofora/client/NullBeaconDataFactory.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/com/law/blueinnofora/distance/AndroidModel.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/com/law/blueinnofora/distance/CurveFittedDistanceCalculator.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/com/law/blueinnofora/distance/DistanceCalculator.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/com/law/blueinnofora/distance/DistanceConfigFetcher.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/com/law/blueinnofora/distance/ModelSpecificDistanceCalculator.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/com/law/blueinnofora/distance/ModelSpecificDistanceUpdater.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/com/law/blueinnofora/service/BeaconService.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/com/law/blueinnofora/service/Callback.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/com/law/blueinnofora/service/DetectionTracker.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/com/law/blueinnofora/service/GattBeaconTracker.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/com/law/blueinnofora/service/MonitorState.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/com/law/blueinnofora/service/RangeState.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/com/law/blueinnofora/service/RangedBeacon.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/com/law/blueinnofora/service/RangingData.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/com/law/blueinnofora/service/RssiFilter.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/com/law/blueinnofora/service/RunningAverageRssiFilter.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/com/law/blueinnofora/service/StartRMData.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/com/law/blueinnofora/service/Stats.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/com/law/blueinnofora/service/scanner/CycledLeScanCallback.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/com/law/blueinnofora/service/scanner/CycledLeScanner.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/com/law/blueinnofora/service/scanner/CycledLeScannerForJellyBeanMr2.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/com/law/blueinnofora/service/scanner/CycledLeScannerForLollipop.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/com/law/blueinnofora/service/scanner/ScanFilterUtils.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/com/law/blueinnofora/simulator/BeaconSimulator.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/com/law/blueinnofora/simulator/StaticBeaconSimulator.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/com/law/blueinnofora/startup/BootstrapNotifier.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/com/law/blueinnofora/startup/RegionBootstrap.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/com/law/blueinnofora/startup/StartupBroadcastReceiver.java" charset="UTF-8" />
     <file url="PROJECT" charset="windows-1251" />
   </component>
 </project>

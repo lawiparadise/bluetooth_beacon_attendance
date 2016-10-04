@@ -36,7 +36,7 @@ public class MainActivity extends ActionBarActivity {
         ((FirstStartApp) getApplicationContext()).mainActivity=this;
 
         BeaconManager beaconmanager = BeaconManager.getInstanceForApplication(this);
-        
+
         RESCANButton = (Button) findViewById(R.id.RESCANBUTTON2);
         RESCANButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -94,8 +94,8 @@ public class MainActivity extends ActionBarActivity {
     protected void onDestroy() {
         super.onDestroy();
         Log.i(TAG, "MY : ONDE : MAINACTIVITY");
-    //    beaconManager.unbind(this);
-     //   Toast.makeText(this,"hi",Toast.LENGTH_SHORT).show();
+        //    beaconManager.unbind(this);
+        //   Toast.makeText(this,"hi",Toast.LENGTH_SHORT).show();
     }
 
     @Override
@@ -119,14 +119,14 @@ public class MainActivity extends ActionBarActivity {
 
         return super.onOptionsItemSelected(item);
     }
-    
+
     public static void updateUi(int state){
         if(state==2)
             STATEBUTTON.setText("ATTENDANCE");
         Log.e(TAG,"setText");
 
-        //À¯¾ÆÀÌ ¾÷µ¥ÀÌÆ®´Â ÇÚµé·¯·Î °ªÀ» ¹Ş¾Æ¼­ ¾÷µ¥ÀÌÆ® ½ÃÄÑÁØ´Ù.
-        // °ú¸ñº° ³¯Â¥º° Ãâ¼®,Áö°¢,°á¼®À» È®ÀÎÇÒ ¼ö ÀÖ¾î¾ß ÇÑ´Ù.
+        //ìœ ì•„ì´ ì—…ë°ì´íŠ¸ëŠ” í•¸ë“¤ëŸ¬ë¡œ ê°’ì„ ë°›ì•„ì„œ ì—…ë°ì´íŠ¸ ì‹œì¼œì¤€ë‹¤.
+        // ê³¼ëª©ë³„ ë‚ ì§œë³„ ì¶œì„,ì§€ê°,ê²°ì„ì„ í™•ì¸í•  ìˆ˜ ìˆì–´ì•¼ í•œë‹¤.
     }
 
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -134,10 +134,10 @@ public class MainActivity extends ActionBarActivity {
             case ABSENCE:
                 break;
             case ATTENDANCE:
-               if(resultCode== Activity.RESULT_OK){
+                if(resultCode== Activity.RESULT_OK){
                     Log.e(TAG,"4 onACtivityResult");
                     updateUi(ATTENDANCE);
-               }
+                }
 
                 break;
             default:
@@ -147,7 +147,7 @@ public class MainActivity extends ActionBarActivity {
     }
 
 /*
-    //ÇÚµé·¯·Î ÃâÃ½ÀÌ ¿Ï·áµÇ¾úÀ» ¶§, disableÇÔ¼ö·Î ºñÄÜ »ç¿ëÀ» ³¡³½´Ù.
+    //í•¸ë“¤ëŸ¬ë¡œ ì¶œì²µì´ ì™„ë£Œë˜ì—ˆì„ ë•Œ, disableí•¨ìˆ˜ë¡œ ë¹„ì½˜ ì‚¬ìš©ì„ ëë‚¸ë‹¤.
     private final Handler mHandler = new Handler() {
         @Override
         public void handleMessage(Message msg){

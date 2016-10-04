@@ -39,26 +39,26 @@ public class BeaconIntentProcessor extends IntentService {
     private static final String TAG = "BeaconIntentProcessor";
 
     public BeaconIntentProcessor() {
-        super("BeaconIntentProcessor"); //ÀÌ°É·Î ÀÎÅÙÆ®ÀÇ ÀÎÅÙÆ®ÆäÅ°Áö³×ÀÓÀ» °áÁ¤ÇÏ´ÂµíÇÏ´Ù.
+        super("BeaconIntentProcessor"); //ì´ê±¸ë¡œ ì¸í…íŠ¸ì˜ ì¸í…íŠ¸í˜í‚¤ì§€ë„¤ì„ì„ ê²°ì •í•˜ëŠ”ë“¯í•˜ë‹¤.
         Log.e(TAG,"MY : CON : beaconintentprocessor is constructed!!!");
     }
 
     @Override
     protected void onHandleIntent(Intent intent) {
-   //     LogManager.d(TAG, "got an intent to process");
+        //     LogManager.d(TAG, "got an intent to process");
 
         MonitoringData monitoringData = null;
         RangingData rangingData = null;
 
         if (intent != null && intent.getExtras() != null) {
-            monitoringData = (MonitoringData) intent.getExtras().get("monitoringData"); //intent·Î ¹ŞÀº ¸ğ´ÏÅÍ¸µ µ¥ÀÌÅ¸¸¦ ÀúÀåÇÑ´Ù.
+            monitoringData = (MonitoringData) intent.getExtras().get("monitoringData"); //intentë¡œ ë°›ì€ ëª¨ë‹ˆí„°ë§ ë°ì´íƒ€ë¥¼ ì €ì¥í•œë‹¤.
             rangingData = (RangingData) intent.getExtras().get("rangingData");
         }
 
         if (rangingData != null) {
-         //   LogManager.d(TAG, "got ranging data");
+            //   LogManager.d(TAG, "got ranging data");
             if (rangingData.getBeacons() == null) {
-          //      LogManager.w(TAG, "Ranging data has a null beacons collection");
+                //      LogManager.w(TAG, "Ranging data has a null beacons collection");
             }
             RangeNotifier notifier = BeaconManager.getInstanceForApplication(this).getRangingNotifier();
             java.util.Collection<Beacon> beacons = rangingData.getBeacons();
@@ -66,7 +66,7 @@ public class BeaconIntentProcessor extends IntentService {
                 notifier.didRangeBeaconsInRegion(beacons, rangingData.getRegion());
             }
             else {
-      //          LogManager.d(TAG, "but ranging notifier is null, so we're dropping it.");
+                //          LogManager.d(TAG, "but ranging notifier is null, so we're dropping it.");
             }
             RangeNotifier dataNotifier = BeaconManager.getInstanceForApplication(this).getDataRequestNotifier();
             if (dataNotifier != null) {
@@ -75,23 +75,24 @@ public class BeaconIntentProcessor extends IntentService {
         }
 
         if (monitoringData != null) {
-   //         LogManager.d(TAG, "got monitoring data");
+            //         LogManager.d(TAG, "got monitoring data");
             MonitorNotifier notifier = BeaconManager.getInstanceForApplication(this).getMonitoringNotifier();
             if (notifier != null) {
-        //        LogManager.d(TAG, "Calling monitoring notifier: %s", notifier);
+                //        LogManager.d(TAG, "Calling monitoring notifier: %s", notifier);
                 notifier.didDetermineStateForRegion(monitoringData.isInside() ? MonitorNotifier.INSIDE : MonitorNotifier.OUTSIDE, monitoringData.getRegion());
-                if (monitoringData.isInside()) { //state¸¦ °¡Áö°í ¸ğ´ÏÅÍ¸µµ¥ÀÌÅ¸¸¦ ÀÌ¿ëÇÏ¿© Áö¿ª ¾È¿¡ÀÖ´ÂÁö ¹Û¿¡ ÀÖ´ÂÁö ÃøÁ¤ÇÑ´Ù.
+                if (monitoringData.isInside()) { //stateë¥¼ ê°€ì§€ê³  ëª¨ë‹ˆí„°ë§ë°ì´íƒ€ë¥¼ ì´ìš©í•˜ì—¬ ì§€ì—­ ì•ˆì—ìˆëŠ”ì§€ ë°–ì— ìˆëŠ”ì§€ ì¸¡ì •í•œë‹¤.
                     Log.e(TAG,"MY : didenterregion!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!1111");
                     notifier.didEnterRegion(monitoringData.getRegion());
-               //     notifier.didEnterRegion(monitoringData.getRegion());
-                    //ÀÌ°Å´Ù Ã£¾Ò´Ù...¤Ğ¤Ğ
+                    //     notifier.didEnterRegion(monitoringData.getRegion());
+                    //ì´ê±°ë‹¤ ì°¾ì•˜ë‹¤...ã… ã… 
 
-               }
-               else {
-                   notifier.didExitRegion(monitoringData.getRegion());
+                }
+                else {
+                    notifier.didExitRegion(monitoringData.getRegion());
                     Log.e(TAG, "MY : didExitRegion!!!!!");
-               }
+                }
             }
         }
     }
 }
+

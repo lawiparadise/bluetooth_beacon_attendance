@@ -32,7 +32,7 @@ import java.util.concurrent.ConcurrentMap;
 
 /**
  * Created by gd2 on 2015-07-02.
- * ????? ??????(or????)?? ???????? ???? ????? ???? ?????.
+ * 비콘과 액티비티(or서비스)의 상호작용을 위한 셋업을 위해 이용된다.
  */
 @TargetApi(4)
 public class BeaconManager {
@@ -53,15 +53,15 @@ public class BeaconManager {
     private static boolean sAndroidLScanningDisabled = false;
     private static boolean sManifestCheckingDisabled = false;
 
-    //??????? ??????? ??????? ?????? ??????
+    //라이브러리 디버깅을 보여주고 싶으면 트루하라
     @Deprecated
     public static void setDebug(boolean debug) {
         if (debug) {
-     //       LogManager.setLogger(Loggers.verboseLogger());
-     //       LogManager.setVerboseLoggingEnabled(true);
+            //       LogManager.setLogger(Loggers.verboseLogger());
+            //       LogManager.setVerboseLoggingEnabled(true);
         } else {
-     //       LogManager.setLogger(Loggers.empty());
-      //      LogManager.setVerboseLoggingEnabled(false);
+            //       LogManager.setLogger(Loggers.empty());
+            //      LogManager.setVerboseLoggingEnabled(false);
         }
     }
 
@@ -138,7 +138,7 @@ public class BeaconManager {
      */
     public static BeaconManager getInstanceForApplication(Context context) {
         if (client == null) {
-       //     LogManager.d(TAG, "BeaconManager instance creation");
+            //     LogManager.d(TAG, "BeaconManager instance creation");
             Log.i(TAG,"MY : CON : BeaconManager>>GetInstanceForApplication!!");
             client = new BeaconManager(context);
         }
@@ -159,7 +159,7 @@ public class BeaconManager {
 
     }
 
-    //?????? ????????? ??????? ????.
+    //활성화된 비콘파서의 리스트를 얻는다.
     public List<BeaconParser> getBeaconParsers() {
         if (isAnyConsumerBound()) {
             return Collections.unmodifiableList(beaconParsers);
@@ -167,7 +167,7 @@ public class BeaconManager {
         return beaconParsers;
     }
 
-    //BLE?? ???????????????? ????????? ?????. ????? ???????? ?????.
+    //BLE가 안드로이드디바이스에서 제공되는지 체크한다. 그리고 사용가능하게 만든다.
     @TargetApi(18)
     public boolean checkAvailability() throws BleNotAvailableException {
         if (android.os.Build.VERSION.SDK_INT < 18) {
@@ -183,39 +183,39 @@ public class BeaconManager {
         return false;
     }
 
-    //bind???. ??????? ??????(or????)?? ????????. ??????(or????)?? ???? beaconConsumer?? implement??????.????? ???????
+    //bind한다. 안드로이드 액티비티(or서비스)와 비콘서비스를. 액티비티(or서비스)는 반드시 beaconConsumer를 implement해야한다.콜백을 받기위해
     public void bind(BeaconConsumer consumer) {
         Log.i(TAG,"MY : bind started");
         if (android.os.Build.VERSION.SDK_INT < 18) {
-        //    LogManager.w(TAG, "Not supported prior to API 18.  Method invocation will be ignored");
+            //    LogManager.w(TAG, "Not supported prior to API 18.  Method invocation will be ignored");
             return;
         }
         synchronized (consumers) {
             ConsumerInfo consumerInfo = consumers.putIfAbsent(consumer, new ConsumerInfo());
             if (consumerInfo != null) {
-        //        LogManager.d(TAG, "This consumer is already bound");
+                //        LogManager.d(TAG, "This consumer is already bound");
                 Log.i(TAG,"MY : synchronized >> this consumer is already bound");
             }
             else {
-           //     LogManager.d(TAG, "This consumer is not bound.  binding: %s", consumer);
+                //     LogManager.d(TAG, "This consumer is not bound.  binding: %s", consumer);
                 Log.i(TAG,"MY : this consumer is not bound so will start bindservice");
                 Intent intent = new Intent(consumer.getApplicationContext(), BeaconService.class);
                 consumer.bindService(intent, beaconServiceConnection, Context.BIND_AUTO_CREATE);
-                //??? ?? ????? ?????? ???????? ???? ??? ???,
-            //    LogManager.d(TAG, "consumer count is now: %s", consumers.size());
+                //아마 이 바인드 때문에 비콘서비스가 생성 될듯 하고,
+                //    LogManager.d(TAG, "consumer count is now: %s", consumers.size());
             }
         }
     }
 
-    //unbind. destroy?? ??????.
+    //unbind. destroy때 싫행된다.
     public void unbind(BeaconConsumer consumer) {
         if (android.os.Build.VERSION.SDK_INT < 18) {
-      //      LogManager.w(TAG, "Not supported prior to API 18.  Method invocation will be ignored");
+            //      LogManager.w(TAG, "Not supported prior to API 18.  Method invocation will be ignored");
             return;
         }
         synchronized (consumers) {
             if (consumers.containsKey(consumer)) {
-         //       LogManager.d(TAG, "Unbinding");
+                //       LogManager.d(TAG, "Unbinding");
                 consumer.unbindService(beaconServiceConnection);
                 consumers.remove(consumer);
                 if (consumers.size() == 0) {
@@ -225,33 +225,33 @@ public class BeaconManager {
                 }
             }
             else {
-          //      LogManager.d(TAG, "This consumer is not bound to: %s", consumer);
-          //      LogManager.d(TAG, "Bound consumers: ");
+                //      LogManager.d(TAG, "This consumer is not bound to: %s", consumer);
+                //      LogManager.d(TAG, "Bound consumers: ");
                 Set<Map.Entry<BeaconConsumer, ConsumerInfo>> consumers = this.consumers.entrySet();
                 for (Map.Entry<BeaconConsumer, ConsumerInfo> consumerEntry : consumers) {
-      //              LogManager.d(TAG, String.valueOf(consumerEntry.getValue()));
+                    //              LogManager.d(TAG, String.valueOf(consumerEntry.getValue()));
                 }
             }
         }
     }
 
-    //passed beacon consumer?? ????? ???? ??????? ?????.
+    //passed beacon consumer가 서비스에 바운드 되엇는지 묻는다.
     public boolean isBound(BeaconConsumer consumer) {
         synchronized(consumers) {
             return consumer != null && consumers.get(consumer) != null && (serviceMessenger != null);
         }
     }
-    //any beacon consumer?? ????? ???? ??????? ?????.
+    //any beacon consumer가 서비스에 바운드 되엇는지 묻는다.
     public boolean isAnyConsumerBound() {
         synchronized(consumers) {
             return consumers.size() > 0 && (serviceMessenger != null);
         }
     }
 
-    //?? ????? ?????. ????????. ?? ???????? ???? ???????? ????????? ????????? ?????????.
+    //이 함수는 알린다. 비콘서비스를. 그 비콘서비스는 앱이 백그라운드에서 움직이는지 포그라운드에서 움직이는지.
     public void setBackgroundMode(boolean backgroundMode) {
         if (android.os.Build.VERSION.SDK_INT < 18) {
-       //     LogManager.w(TAG, "Not supported prior to API 18.  Method invocation will be ignored");
+            //     LogManager.w(TAG, "Not supported prior to API 18.  Method invocation will be ignored");
         }
         mBackgroundModeUninitialized = false;
         if (backgroundMode != mBackgroundMode) {
@@ -259,12 +259,12 @@ public class BeaconManager {
             try {
                 this.updateScanPeriods();
             } catch (RemoteException e) {
-             //   LogManager.e(TAG, "Cannot contact service to set scan periods");
+                //   LogManager.e(TAG, "Cannot contact service to set scan periods");
             }
         }
     }
 
-    //?? ???? ????????? ?????? ??????? ????? ????????.
+    //어떤 콜이 백그라운드모드로 섹팅이 되었는지 아닌지 나타내준다.
     public boolean isBackgroundModeUninitialized() {
         return mBackgroundModeUninitialized;
     }
@@ -279,11 +279,11 @@ public class BeaconManager {
         monitorNotifier = notifier;
     }
 
-    //?????? ????????? ????. ???????? passed region object?? ?????? ?????? ?????? ??????????? ???? ????? ???????.
+    //비콘을 레인징하는걸 스타트. 비콘서비스가 passed region object를 맷치하는 비콘을 찾는것을 시작하기위한 비콘 서비스를 말해준다.
     @TargetApi(18)
     public void startRangingBeaconsInRegion(Region region) throws RemoteException {
         if (android.os.Build.VERSION.SDK_INT < 18) {
-           // LogManager.w(TAG, "Not supported prior to API 18.  Method invocation will be ignored");
+            // LogManager.w(TAG, "Not supported prior to API 18.  Method invocation will be ignored");
             return;
         }
         if (serviceMessenger == null) {
@@ -298,11 +298,11 @@ public class BeaconManager {
         }
     }
 
-    //?????? ????? ???? ???. ???? ???? ?????? ?????????? ?????.
+    //비콘을 레인징 하는걸 스탑. 비콘 찾는걸 멈추라고 비콘서비스에게 말한다.
     @TargetApi(18)
     public void stopRangingBeaconsInRegion(Region region) throws RemoteException {
         if (android.os.Build.VERSION.SDK_INT < 18) {
-         //   LogManager.w(TAG, "Not supported prior to API 18.  Method invocation will be ignored");
+            //   LogManager.w(TAG, "Not supported prior to API 18.  Method invocation will be ignored");
             return;
         }
         if (serviceMessenger == null) {
@@ -323,15 +323,15 @@ public class BeaconManager {
         }
     }
 
-    //???? ?????? ????
+    //비콘 모니터링 스타트
     @TargetApi(18)
     public void startMonitoringBeaconsInRegion(Region region) throws RemoteException {
         if (android.os.Build.VERSION.SDK_INT < 18) {
-   //         LogManager.w(TAG, "Not supported prior to API 18.  Method invocation will be ignored");
+            //         LogManager.w(TAG, "Not supported prior to API 18.  Method invocation will be ignored");
             return;
         }
         if (serviceMessenger == null) {
-            Log.e(TAG,"MY : ????");
+            Log.e(TAG,"MY : 안된다");
             throw new RemoteException("The BeaconManager is not bound to the service.  Call beaconManager.bind(BeaconConsumer consumer) and wait for a callback to onBeaconServiceConnect()");
         }
         Message msg = Message.obtain(null, BeaconService.MSG_START_MONITORING, 0, 0);
@@ -347,11 +347,11 @@ public class BeaconManager {
         }
     }
 
-    //???? ?????? ???
+    //비콘 모니터링 스탑
     @TargetApi(18)
     public void stopMonitoringBeaconsInRegion(Region region) throws RemoteException {
         if (android.os.Build.VERSION.SDK_INT < 18) {
-      //      LogManager.w(TAG, "Not supported prior to API 18.  Method invocation will be ignored");
+            //      LogManager.w(TAG, "Not supported prior to API 18.  Method invocation will be ignored");
             return;
         }
         if (serviceMessenger == null) {
@@ -372,19 +372,19 @@ public class BeaconManager {
         }
     }
 
-    //??? ????? ????
+    //스캔 사이클 바꾸기
     @TargetApi(18)
     public void updateScanPeriods() throws RemoteException {
         if (android.os.Build.VERSION.SDK_INT < 18) {
-        //    LogManager.w(TAG, "Not supported prior to API 18.  Method invocation will be ignored");
+            //    LogManager.w(TAG, "Not supported prior to API 18.  Method invocation will be ignored");
             return;
         }
         if (serviceMessenger == null) {
             throw new RemoteException("The BeaconManager is not bound to the service.  Call beaconManager.bind(BeaconConsumer consumer) and wait for a callback to onBeaconServiceConnect()");
         }
         Message msg = Message.obtain(null, BeaconService.MSG_SET_SCAN_PERIODS, 0, 0);
-   //     LogManager.d(TAG, "updating background flag to %s", mBackgroundMode);
-     //   LogManager.d(TAG, "updating scan period to %s, %s", this.getScanPeriod(), this.getBetweenScanPeriod());
+        //     LogManager.d(TAG, "updating background flag to %s", mBackgroundMode);
+        //   LogManager.d(TAG, "updating scan period to %s, %s", this.getScanPeriod(), this.getBetweenScanPeriod());
         StartRMData obj = new StartRMData(this.getScanPeriod(), this.getBetweenScanPeriod(), this.mBackgroundMode);
         msg.obj = obj;
         serviceMessenger.send(msg);
@@ -397,12 +397,12 @@ public class BeaconManager {
         return packageName;
     }
 
-    //???????? ????????? ???? ???.
+    //비콘서비스가 만들어지고 실행 된다.
     private ServiceConnection beaconServiceConnection = new ServiceConnection() {
         // Called when the connection with the service is established
         public void onServiceConnected(ComponentName className, IBinder service) {
             Log.i(TAG,"MY : we have a connection to the service now");
-       ///     LogManager.d(TAG, "we have a connection to the service now");
+            ///     LogManager.d(TAG, "we have a connection to the service now");
             serviceMessenger = new Messenger(service);
             synchronized(consumers) {
                 Iterator<Map.Entry<BeaconConsumer, ConsumerInfo>> iter = consumers.entrySet().iterator();
@@ -420,7 +420,7 @@ public class BeaconManager {
         // Called when the connection with the service disconnects
         public void onServiceDisconnected(ComponentName className) {
             Log.i(TAG,"MY : onServiceDisconnected!!");
-   //         LogManager.e(TAG, "onServiceDisconnected");
+            //         LogManager.e(TAG, "onServiceDisconnected");
             serviceMessenger = null;
         }
     };
@@ -432,14 +432,14 @@ public class BeaconManager {
         return this.rangeNotifier;
     }
 
-    //?????? ?????? ?????
+    //모니터된 리지온 리스트
     public Collection<Region> getMonitoredRegions() {
         synchronized(this.monitoredRegions) {
             return new ArrayList<Region>(this.monitoredRegions);
         }
     }
 
-    //???????? ?????? ?????
+    //레인지된 리지온 리스트
     public Collection<Region> getRangedRegions() {
         synchronized(this.rangedRegions) {
             return new ArrayList<Region>(this.rangedRegions);
@@ -456,10 +456,10 @@ public class BeaconManager {
      * @deprecated This will be removed in a later release. Use
      * {@link org.altbeacon.beacon.logging.LogManager#d(String, String, Object...)} instead.
      */
- //   @Deprecated
-  //  public static void logDebug(String tag, String message) {
-  //      LogManager.d(tag, message);
-  //  }
+    //   @Deprecated
+    //  public static void logDebug(String tag, String message) {
+    //      LogManager.d(tag, message);
+    //  }
 
     /**
      * Convenience method for logging debug by the library
@@ -471,10 +471,10 @@ public class BeaconManager {
      * {@link org.altbeacon.beacon.logging.LogManager#d(Throwable, String, String, Object...)}
      * instead.
      */
- //   @Deprecated
- //   public static void logDebug(String tag, String message, Throwable t) {
-   //     LogManager.d(t, tag, message);
-  //  }
+    //   @Deprecated
+    //   public static void logDebug(String tag, String message, Throwable t) {
+    //     LogManager.d(t, tag, message);
+    //  }
 
     protected static BeaconSimulator beaconSimulator;
 
@@ -555,7 +555,7 @@ public class BeaconManager {
         }
     }
 
-    //???????? ???????? ???? ????? ???????????? 0?? ??????? ????????.
+    //비콘서비스를 생성하는게 아니라 단순히 패키지매니저가 0이 아닌지만 확인해준다.
     private void verifyServiceDeclaration() {
         Log.i(TAG,"MY : CON : do verifyServiceDeclaration");
         final PackageManager packageManager = mContext.getPackageManager();
@@ -563,8 +563,8 @@ public class BeaconManager {
 
         List resolveInfo = packageManager.queryIntentServices(intent,PackageManager.MATCH_DEFAULT_ONLY);
 
-        if (resolveInfo.size() == 0) { //?? ????? ??????. ??? ?? ?????? ??????? ??? ???? ????????. ?????
-            //service?? ???? ??????????? ?????? ???? ???????? ????? ????? ????????.
+        if (resolveInfo.size() == 0) { //이 부분이 문제다. 이거 왜 안되지? 비콘서비스 안에 안넣어서 그런듯하다. 넣어보자
+            //service에 내용 안채워넣은게 문제가 아니라 메니페스트에 등록을 안한게 문제였다.
             throw new ServiceNotDeclaredException();
         }
 
@@ -575,7 +575,7 @@ public class BeaconManager {
         public ServiceNotDeclaredException() {
             super("The BeaconService is not properly declared in AndroidManifest.xml.  If using Eclipse," +
                     " please verify that your project.properties has manifestmerger.enabled=true");
-            //???? ??? ?????. ???????? ??????? ??
+            //내용 확인 하였다. 매니페스트에 넣었더니 됨
         }
     }
 

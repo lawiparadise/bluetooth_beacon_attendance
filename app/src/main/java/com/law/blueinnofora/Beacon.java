@@ -15,9 +15,9 @@ import java.util.logging.LogManager;
 
 /**
  * Created by gd2 on 2015-07-02.
- * ???? ??????? ??????? ???????? ???? ???? ????? ?????? ?????? ???????.
- * ?????? ??? ????? ????? identifier?? ?????????.
- * ?????? BLE ???? ??????? ???? ?????? identifier?? ???, ????? ???? ?????? ???.
+ * 비콘 클래스는 안드로드이 디바이스에 의해 발견된 하나의 하드웨어 비콘을 나타낸다.
+ * 비콘은 특정 다양한 부분의 identifier로 자아확립된다.
+ * 비콘은 BLE 광고를 보내는데 이것엔 세개의 identifier가 있고, 파워에 대한 정보도 온다.
  */
 public class Beacon implements Parcelable {
     private static final String TAG = "BeaconClass";
@@ -25,37 +25,37 @@ public class Beacon implements Parcelable {
     private static final List<Long> UNMODIFIABLE_LIST_OF_LONG = Collections.unmodifiableList(new ArrayList<Long>());
     private static final List<Identifier> UNMODIFIABLE_LIST_OF_IDENTIFIER = Collections.unmodifiableList(new ArrayList<Identifier>());
 
-    //???????? ???? ?? ?????? ???? ???????
+    //맥어드레스가 같은 두 비콘을 같이 취급하는것
     protected static boolean sHardwareEqualityEnforced = false;
     protected static DistanceCalculator sDistanceCalculator = null;
 
-    //identifier?? ????
+    //identifier의 부분들
     protected List<Identifier> mIdentifiers;
-    //?????
+    //데이타
     protected List<Long> mDataFields;
     protected List<Long> mExtraDataFields;
-    //???
+    //거리
     protected Double mDistance;
-    //??? ??????
+    //탐색 강도도
     protected int mRssi;
-    //???
+    //파워
     protected int mTxPower;
-    //?????
+    //맥주소
     protected String mBluetoothAddress;
-    //???? ????
+    //런닝 평균?
     private Double mRunningAverageRssi = null;
-    //???? ????? ?????
+    //개인 비콘에 접근?
     protected static BeaconDataFactory beaconDataFactory = new NullBeaconDataFactory();
-    //???? ????? ??????? ????? ????? ??? ? ???? ?????? ?????? ??????? ????????? ???
+    //비콘 타입을 나타내는 두개의 바이트 밸류 ? 비콘 광고의 레이아웃 데이타를 밝혀내는데 사용
     protected int mBeaconTypeCode;
-    //???? ?????? ?????
+    //비콘 제조사를 나타냄
     protected int mManufacturer;
-    //32??? ???? UUID GATT?? ????????? ??????? ????
+    //32비트 서비스 UUID GATT를 기반으로한 비콘에서 허용됨
     protected int mServiceUuid = -1;
-    //??????? ?????? ????
+    //블루투스 디바이스 네임
     protected String mBluetoothName;
 
-    //????? ??????? ???
+    //파르셀 해주려면 필요
     public static final Parcelable.Creator<Beacon> CREATOR
             = new Parcelable.Creator<Beacon>() {
         public Beacon createFromParcel(Parcel in) {
@@ -67,7 +67,7 @@ public class Beacon implements Parcelable {
         }
     };
 
-    //??? ??? ????
+    //거리 계산 세팅
     public static void setDistanceCalculator(DistanceCalculator dc) {
         sDistanceCalculator = dc;
     }
@@ -75,7 +75,7 @@ public class Beacon implements Parcelable {
         return sDistanceCalculator;
     }
 
-    //????? ???? ??? ???
+    //맥주소 같을 경우 처리
     public static void setHardwareEqualityEnforced(boolean e) {
         sHardwareEqualityEnforced = e;
     }
@@ -100,9 +100,9 @@ public class Beacon implements Parcelable {
             mDataFields.add(in.readLong());
         }
         int extraDataSize = in.readInt();
-     //   if (LogManager.isVerboseLoggingEnabled()) {
-     //       LogManager.d(TAG, "reading "+extraDataSize+" extra data fields from parcel");
-     //   }
+        //   if (LogManager.isVerboseLoggingEnabled()) {
+        //       LogManager.d(TAG, "reading "+extraDataSize+" extra data fields from parcel");
+        //   }
         this.mExtraDataFields = new ArrayList<Long>(extraDataSize);
         for (int i = 0; i < extraDataSize; i++) {
             mExtraDataFields.add(in.readLong());
@@ -140,13 +140,13 @@ public class Beacon implements Parcelable {
         mExtraDataFields = new ArrayList<Long>(1);
     }
 
-    //???? ??? rssi?? ???????? ???????? ?????
+    //런닝 평균 rssi를 세팅해줌 거리계산을 위해서
     public void setRunningAverageRssi(double rssi) {
         mRunningAverageRssi = rssi;
         mDistance = null; // force calculation of accuracy and proximity next time they are requested
     }
 
-    //???? ??? ?????? rssi ????
+    //가장 최근 측정된 rssi 저장
     public void setRssi(int rssi) {
         mRssi = rssi;
     }
@@ -194,7 +194,7 @@ public class Beacon implements Parcelable {
             return Collections.unmodifiableList(mIdentifiers);
         }
     }
-    //??????
+    //거리계산
     public double getDistance() {
         if (mDistance == null) {
             double bestRssiAvailable = mRssi;
@@ -202,7 +202,7 @@ public class Beacon implements Parcelable {
                 bestRssiAvailable = mRunningAverageRssi;
             }
             else {
-            //    LogManager.d(TAG, "Not using running average RSSI because it is null");
+                //    LogManager.d(TAG, "Not using running average RSSI because it is null");
             }
             mDistance = calculateDistance(mTxPower, bestRssiAvailable);
         }
@@ -223,7 +223,7 @@ public class Beacon implements Parcelable {
         return mBluetoothName;
     }
 
-    //?????? ?????? ??????.
+    //비콘의 해쉬코드를 계산한다.
     @Override
     public int hashCode() {
         StringBuilder sb = new StringBuilder();
@@ -242,7 +242,7 @@ public class Beacon implements Parcelable {
         return sb.toString().hashCode();
     }
 
-    //????? ???? ?????? ??????(???? identifier?? ??????) rssi?? distance?? ???????.
+    //두개의 발견된 비콘이 같으면(둘의 identifier가 같으면) rssi나 distance를 무시한다.
     @Override
     public boolean equals(Object that) {
         if (!(that instanceof Beacon)) {
@@ -263,12 +263,12 @@ public class Beacon implements Parcelable {
                 true;
     }
 
-    //?????? ????????? ??????? ?????.
+    //비콘의 서버사이드 데이타를 요구한다.
     public void requestData(BeaconDataNotifier notifier) {
         beaconDataFactory.requestBeaconData(this, notifier);
     }
 
-    //unique identifier?? ????????? ???????.
+    //unique identifier를 스트링으로 보여준다.
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
@@ -286,14 +286,14 @@ public class Beacon implements Parcelable {
         return sb.toString();
     }
 
-    //???????? for parcelabel
+    //있어야하는것 for parcelabel
     public int describeContents() {
         return 0;
     }
 
     public void writeToParcel(Parcel out, int flags) {
         out.writeInt(mIdentifiers.size());
-  //      LogManager.d(TAG, "serializing identifiers of size %s", mIdentifiers.size());
+        //      LogManager.d(TAG, "serializing identifiers of size %s", mIdentifiers.size());
         Log.i(TAG,"Beacon : serializing identifiers of size");
 
         for (Identifier identifier: mIdentifiers) {
@@ -309,9 +309,9 @@ public class Beacon implements Parcelable {
         for (Long dataField: mDataFields) {
             out.writeLong(dataField);
         }
-   //     if (LogManager.isVerboseLoggingEnabled()) {
-    //        LogManager.d(TAG, "writing "+mExtraDataFields.size()+" extra data fields to parcel");
-    //    }
+        //     if (LogManager.isVerboseLoggingEnabled()) {
+        //        LogManager.d(TAG, "writing "+mExtraDataFields.size()+" extra data fields to parcel");
+        //    }
         out.writeInt(mExtraDataFields.size());
         for (Long dataField: mExtraDataFields) {
             out.writeLong(dataField);
@@ -320,7 +320,7 @@ public class Beacon implements Parcelable {
         out.writeString(mBluetoothName);
 
     }
-    //?? ?????? ??????? ????? ???????? ???????.
+    //이 비콘이 엑스트라 데이타 비콘인지 나타낸다.
     public boolean isExtraBeaconData() {
         return mIdentifiers.size() == 0 && mDataFields.size() != 0;
     }
@@ -330,7 +330,7 @@ public class Beacon implements Parcelable {
             return Beacon.getDistanceCalculator().calculateDistance(txPower, bestRssiAvailable);
         }
         else {
-        //    LogManager.e(TAG, "Distance calculator not set.  Distance will bet set to -1");
+            //    LogManager.e(TAG, "Distance calculator not set.  Distance will bet set to -1");
             Log.i(TAG,"Beacon : Distance calculator not set.  Distance will bet set to -1");
             return -1.0;
         }
