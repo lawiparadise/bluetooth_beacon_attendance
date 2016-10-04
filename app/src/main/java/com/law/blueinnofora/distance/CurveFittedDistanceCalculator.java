@@ -21,6 +21,7 @@ public class CurveFittedDistanceCalculator implements DistanceCalculator {
     private double mCoefficient3;
 
     /**
+     *
      * Construct a calculator with coefficients specific for the device's signal vs. distance
      *
      * @param coefficient1

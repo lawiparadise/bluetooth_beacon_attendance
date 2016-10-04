@@ -283,6 +283,7 @@ public class Beacon implements Parcelable {
             sb.append(identifier == null ? "null" : identifier.toString());
             i++;
         }
+//        Log.e(TAG, "MY : idendifier to string :" + sb.toString());
         return sb.toString();
     }
 
